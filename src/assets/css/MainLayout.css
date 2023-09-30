@@ -1,0 +1,60 @@
+.main-layout .header {
+    background: #FFF;
+    box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.15);
+    height: 80px;
+}
+
+.main-layout .sider .btn-collap {
+    color: #D3D4D8;
+    padding: 20px;
+}
+
+.main-layout .sider {
+    height: 91.4vh;
+}
+
+.main-layout .ant-layout-sider-children {
+    background: #1F1E20;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main-layout .header .avatar {
+    border-radius: 50%;
+}
+
+.main-layout .header .user-name {
+    color: #443A3A;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+}
+
+.main-layout .header .role {
+    color: #443A3A;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    /* 218.182% */
+    letter-spacing: 0.15px;
+    text-align: left;
+}
+
+.main-layout .header .logout {
+    color: #000;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+}
+
+
+.main-layout .header .logout:hover{
+    color: red;
+}
