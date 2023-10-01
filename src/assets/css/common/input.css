@@ -1,0 +1,24 @@
+.input-common .title,
+.select-common .title {
+    text-align: left;
+}
+
+.input-common .title .is-required,
+.select-common .title .is-required {
+    color: #FF1422;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0.15px;
+}
+
+.input-common .title .label,
+.select-common .title .label {
+    color: rgba(0, 0, 0, 0.70);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+    text-align: left;
+}

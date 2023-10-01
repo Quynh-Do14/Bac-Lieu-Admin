@@ -5,24 +5,26 @@ import {
 } from '@ant-design/icons';
 
 export const SuccessMessage = (message, description) => {
-  notification.open({
-    message: <div>{message}</div>,
-    description: <div>{description}</div>,
-    icon: <CheckCircleOutlined style={{ color: '#108ee9' }} />
+  notification.success({
+    message: <div className="color-success color-title">{message}</div>,
+    description: <div className="color-success color-des">{description}</div>,
+    icon: <CheckCircleOutlined className="color-success font-size-icon" />
   });
 }
 
 export const FailMessage = (message, description) => {
-  notification.open({
-    message: <div>{message}</div>,
-    description: <div>{description}</div>,
-    icon: <InfoCircleOutlined style={{ color: '#ff4d4f' }} />,
+  notification.error({
+    message: <div className="color-fail color-title">{message}</div>,
+    description: <div className="color-fail color-des">{description}</div>,
+    icon: <InfoCircleOutlined className="color-fail font-size-icon" />,
+    className: "fail-message",
   });
 }
 export const WarningMessage = (message, description) => {
-  notification.open({
-    message: <div>{message}</div>,
-    description: <div>{description}</div>,
-    icon: <InfoCircleOutlined style={{ color: '#ffc107' }} />,
+  notification.info({
+    message: <div className="color-warning color-title">{message}</div>,
+    description: <div className="color-warning color-des">{description}</div>,
+    icon: <InfoCircleOutlined className="color-warning font-size-icon" />,
+    className: "warning-message",
   });
 }

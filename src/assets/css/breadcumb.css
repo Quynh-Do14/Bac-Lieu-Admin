@@ -1,0 +1,24 @@
+.breadcumb-container {
+    background: #F0EEEE;
+}
+
+.breadcumb-container .breadcumb {
+    color: rgba(0, 0, 0, 0.30);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+}
+
+.breadcumb-container .breadcumb-title {
+    color: #000;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    /* 160% */
+    letter-spacing: 0.15px;
+}

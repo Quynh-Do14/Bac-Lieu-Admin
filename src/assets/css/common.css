@@ -2,7 +2,6 @@
 
 * {
     font-family: "Roboto";
-
 }
 
 .main-layout .sider ul.ant-menu.ant-menu-root.ant-menu-vertical.ant-menu-light.menu.css-dev-only-do-not-override-pr0fja {
@@ -44,6 +43,22 @@
     align-items: center;
 }
 
+.main-layout .sider li.ant-menu-item.menu-title:hover {
+    border-radius: 5px;
+    border: 1px solid #80EA66;
+    background: #1F1E20;
+    box-shadow: 6px 4px 12px 0px rgba(152, 243, 109, 0.40);
+
+    color: #63B655;
+    font-family: Roboto;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    /* 160% */
+    letter-spacing: 0.15px;
+}
+
 .main-layout .sider li.ant-menu-item.menu-title.active {
     border-radius: 5px;
     background: #9E9E9E;
@@ -59,6 +74,19 @@
     align-items: center;
 }
 
+.main-layout .content .header-page .filter-page {
+    background: #F0EEEE;
+}
+
+.main-layout .content .header-page .title-page {
+    color: rgba(0, 0, 0, 0.90);
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+    text-align: left;
+}
 
 .flex {
     display: flex;
@@ -164,6 +192,8 @@
     border-radius: 0px;
 }
 
+
+
 :where(.css-dev-only-do-not-override-18iikkb).ant-input-disabled,
 :where(.css-dev-only-do-not-override-18iikkb).ant-input {
     border-radius: 0px;
@@ -228,6 +258,78 @@ button.ant-btn.css-dev-only-do-not-override-18iikkb.ant-btn-default.btn-on-page:
     z-index: 9;
     overflow: auto;
     width: 100%;
+}
+
+.container-pagination .btn-previous-next:hover {
+    color: #1890ff;
+}
+
+.container-pagination .btn-active {
+    height: 32px;
+    width: 32px;
+    color: #1890ff;
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 22px;
+    font-weight: 500;
+    background: #fff !important;
+    border: 1px solid #1890ff;
+    margin: auto;
+}
+
+.container-pagination .btn-previous-next.ant-btn[disabled] {
+    background-color: #3D434B !important;
+    color: white !important;
+    opacity: 50%;
+}
+
+.container-pagination .ant-select-selector {
+    border-radius: 6px !important;
+    border-color: #3D434B !important;
+}
+
+.container-pagination .ant-pagination li {
+    background-color: #DFE3E8 !important;
+    border-radius: 4px;
+}
+
+.container-pagination .ant-pagination li button {
+    background-color: #DFE3E8 !important;
+    border-radius: 4px;
+}
+
+.container-pagination .ant-pagination li button:hover {
+    background-color: #fff !important;
+}
+
+.container-pagination .ant-pagination .ant-pagination-disabled button,
+.container-pagination .ant-pagination .ant-pagination-disabled button:hover {
+    background-color: #3D434B !important;
+    color: white !important;
+    opacity: 50%;
+}
+
+.container-pagination .ant-pagination .ant-pagination-item-active {
+    font-weight: 500;
+    background: #fff !important;
+    border-color: #1890ff;
+}
+
+.container-pagination .ant-pagination li:hover {
+    background-color: #fff !important;
+}
+
+.container-pagination :where(.css-dev-only-do-not-override-pr0fja).ant-pagination .ant-pagination-item-active a {
+    margin: 0;
+}
+
+.container-pagination .show-title {
+    color: var(--base-surface-on-primary, #1E2028);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.75px;
 }
 
 /* Margin Tailwind css */

@@ -1,0 +1,31 @@
+.status-admin {
+    background: #04AD8F;
+    color: #fff;
+    text-align: center;
+    /* width: 60%; */
+    white-space: nowrap;
+}
+
+.status-committee {
+    background: rgba(33, 119, 182, 0.90);
+    color: #fff;
+    text-align: center;
+    /* width: 60%; */
+    white-space: nowrap;
+}
+
+.status-admin {
+    background: #04AD8F;
+    color: #fff;
+    text-align: center;
+    /* width: 60%; */
+    white-space: nowrap;
+}
+
+.status-user {
+    background: #F3B24F;
+    color: #fff;
+    text-align: center;
+    /* width: 60%; */
+    white-space: nowrap;
+}

@@ -1,8 +1,9 @@
 import { Breadcrumb } from 'antd';
 import React from 'react'
-import "../../../../assets/css/MainLayout.css"
+import "../../../../assets/css/breadcumb.css"
 import { useNavigate } from 'react-router-dom';
-export const HeaderMainLayout = (props) => {
+import { RightOutlined } from '@ant-design/icons';
+export const BreadcrumbCommon = (props) => {
   const { title, breadcrumb, redirect } = props;
   const navigate = useNavigate();
   const onNavigate = () => {
@@ -10,9 +11,8 @@ export const HeaderMainLayout = (props) => {
   }
   return (
     <div>
-      <div className='header-main-layout bg-white p-4'>
-        <div className='title py-4'>{title}</div>
-        <Breadcrumb>
+      <div className='breadcumb-container px-5 py-3'>
+        <Breadcrumb separator={<RightOutlined />} className='flex align-center'>
           <Breadcrumb.Item onClick={onNavigate} className='breadcumb pointer'>{breadcrumb}</Breadcrumb.Item>
           <Breadcrumb.Item className='breadcumb-title'>{title}</Breadcrumb.Item>
         </Breadcrumb>

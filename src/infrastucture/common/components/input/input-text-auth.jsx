@@ -56,7 +56,7 @@ const InputTextAuthCommon = (props) => {
         }
     }, [submittedTime]);
     return (
-        <div className='mb-4 input-common'>
+        <div className='mb-4 input-auth-common'>
             {
                 isPassWord
                     ?

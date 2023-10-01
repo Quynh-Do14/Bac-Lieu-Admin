@@ -11,3 +11,138 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.input-common input.ant-input.css-dev-only-do-not-override-pr0fja {
+  border-radius: 0px;
+  border: 0.7px solid #BAB8B8;
+  background: #FFF;
+  color: #979797;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+}
+
+.input-common input.ant-input.css-dev-only-do-not-override-pr0fja,
+.select-common span.ant-select-selection-item {
+  color: var(--00-on-surface-high-emphasis, rgba(0, 0, 0, 0.87));
+  font-family: Roboto;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  /* 160% */
+  letter-spacing: 0.15px;
+}
+
+.button-common button.ant-btn.css-dev-only-do-not-override-pr0fja.ant-btn-default.gradient {
+  border-radius: 5px;
+  background: linear-gradient(30deg, #2782A9 28.37%, #82ACEA 67.26%, #288FBB 94.02%);
+  display: flex;
+  width: 130px;
+  height: 44px;
+  justify-content: center;
+  align-items: center;
+
+  color: #FFF;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+}
+
+.button-common button.ant-btn.css-dev-only-do-not-override-pr0fja.ant-btn-default.blue {
+  border-radius: 5px;
+  background: #528DD2;
+  display: flex;
+  width: 130px;
+  height: 44px;
+  justify-content: center;
+  align-items: center;
+
+  color: #FFF;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.15px
+}
+
+.button-common button.ant-btn.css-dev-only-do-not-override-pr0fja.ant-btn-default.grey {
+  border-radius: 5px;
+  background: #E8EAEE;
+  display: flex;
+  width: 130px;
+  height: 44px;
+  justify-content: center;
+  align-items: center;
+
+  color: #353434;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.15px;
+}
+
+.ant-notification-notice.success-message.css-dev-only-do-not-override-pr0fja.ant-notification-notice-closable {
+  border-radius: 5px;
+  background: #D9FFDC;
+  margin-top: 50px;
+}
+
+.ant-notification-notice.warning-message.css-dev-only-do-not-override-pr0fja.ant-notification-notice-closable {
+  border-radius: 5px;
+  background: #FFF3B4;
+  margin-top: 50px;
+
+}
+
+.ant-notification-notice.fail-message.css-dev-only-do-not-override-pr0fja.ant-notification-notice-closable {
+  border-radius: 5px;
+  background: #FFE2E0;
+  margin-top: 50px;
+
+}
+
+.color-success {
+  color: #447C29;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+}
+
+.color-fail {
+  color: #F21717;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  /* 218.182% */
+  letter-spacing: 0.15px;
+}
+
+.color-warning {
+  color: #A58D0E;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  /* 218.182% */
+  letter-spacing: 0.15px;
+}
+
+.color-title,
+.font-size-icon {
+  font-size: 18px;
+}
+
+.color-des {
+  font-size: 15px;
+}

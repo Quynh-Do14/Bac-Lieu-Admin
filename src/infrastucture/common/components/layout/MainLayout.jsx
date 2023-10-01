@@ -14,11 +14,12 @@ import api from '../../../api';
 import { useRecoilState } from 'recoil';
 import { CategoryState } from '../../../../core/common/atoms/category/categoryState';
 import { DistrictState } from '../../../../core/common/atoms/district/districtState';
+import { BreadcrumbCommon } from './Breabcumb';
 const { Header, Content, Sider } = Layout;
 
 
 export const MainLayout = ({ ...props }) => {
-  // const { title, breadcrumb, redirect } = props
+  const { title, breadcrumb, redirect } = props
   const [collapsed, setCollapsed] = useState(false);
   const [loading, setLoading] = useState(false);
   const [isOpenModalLogout, setIsOpenModalLogout] = useState(false);
@@ -118,8 +119,15 @@ export const MainLayout = ({ ...props }) => {
               }
             </div>
           </Sider>
-          <Layout>
-            <Content className='p-4'>
+          <Layout className='bg-white'>
+            <div className='flex flex-col m-6'>
+              <BreadcrumbCommon
+                breadcrumb={breadcrumb}
+                title={title}
+                redirect={redirect}
+              />
+            </div>
+            <Content className='content flex flex-col p-5 mx-6 mb-6 bg-white'>
               {props.children}
             </Content>
           </Layout>

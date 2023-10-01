@@ -15,8 +15,8 @@ const DialogConfirmCommon = (props) => {
                 onCancel={() => handleCancel()}
             >
                 <div className='modal'>
-                    <div className='mb-6 title'>{title}</div>
-                    <div className='mb-8 message'>{message}</div>
+                    <div className='mb-2 title'>{title}</div>
+                    <div className='mb-2-5 message'>{message}</div>
                     <Row justify={"center"}>
                         <Col>
                             <Button className={"btn-Cancel mx-2"} type='text' key="f-2" onClick={() => handleCancel()}>{titleCancel}</Button>

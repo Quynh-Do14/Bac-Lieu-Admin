@@ -6,14 +6,21 @@ import RecoilOutsideComponent from "./infrastucture/libs/recoil-outside/recoil.s
 import { ROUTE_PATH } from './core/common/appRouter';
 import { Route, BrowserRouter, Routes, Navigate } from "react-router-dom";
 import { ListUserManagement } from './page/user-management/list';
+import { LoginPage } from './page/Auth/Login/Login';
+import { PrivateRoute } from './infrastucture/common/components/router/private-router';
+import { ViewUserManagement } from './page/user-management/view';
+import { AddUserManagement } from './page/user-management/add';
 
 const RouteRoot = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path={ROUTE_PATH.LOGIN} element={< PrivateRoute component={LoginPage} />} /> */}
-        <Route path={ROUTE_PATH.MAINLAYOUT} element={<MainLayout />} />
-        <Route path={ROUTE_PATH.USER} element={<ListUserManagement />} />
+        <Route path={ROUTE_PATH.LOGIN} element={<LoginPage />} />
+        <Route path={ROUTE_PATH.MAINLAYOUT} element={< PrivateRoute component={MainLayout} />} />
+
+        <Route path={ROUTE_PATH.USER} element={<PrivateRoute component={ListUserManagement} />} />
+        <Route path={ROUTE_PATH.VIEW_USER} element={<PrivateRoute component={ViewUserManagement} />} />
+        <Route path={ROUTE_PATH.ADD_USER} element={<PrivateRoute component={AddUserManagement} />} />
       </Routes>
     </BrowserRouter>
   )
