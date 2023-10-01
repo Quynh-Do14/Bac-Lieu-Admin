@@ -41,33 +41,33 @@ export const MainLayout = ({ ...props }) => {
     setIsOpenModalLogout(false);
   };
 
-  // const onGetListCategoryAsync = async () => {
-  //   const response = await api.getAllCategory(
-  //     "",
-  //     () => { }
-  //   )
-  //   if (response.data.danhMucs?.length > 0) {
-  //     setDataCategory(response.data.danhMucs);
-  //   }
-  // };
+  const onGetListCategoryAsync = async () => {
+    const response = await api.getAllCategory(
+      "",
+      () => { }
+    )
+    if (response.data.danhMucs?.length > 0) {
+      setDataCategory(response.data.danhMucs);
+    }
+  };
 
-  // useEffect(() => {
-  //   onGetListCategoryAsync();
-  // }, [])
+  useEffect(() => {
+    onGetListCategoryAsync();
+  }, [])
 
-  // const onGetListDistrictAsync = async () => {
-  //   const response = await api.getAllDistrict(
-  //     "",
-  //     () => { }
-  //   )
-  //   if (response.data.quanHuyens?.length > 0) {
-  //     setDataDistrict(response.data.quanHuyens);
-  //   }
-  // };
+  const onGetListDistrictAsync = async () => {
+    const response = await api.getAllDistrict(
+      "",
+      () => { }
+    )
+    if (response.data.quanHuyens?.length > 0) {
+      setDataDistrict(response.data.quanHuyens);
+    }
+  };
 
-  // useEffect(() => {
-  //   onGetListDistrictAsync();
-  // }, []);
+  useEffect(() => {
+    onGetListDistrictAsync();
+  }, []);
 
   return (
     <div className="main-layout">
@@ -87,7 +87,7 @@ export const MainLayout = ({ ...props }) => {
                 </div>
               </Col>
               <Col>
-                <img className='avatar' src={avatar} alt='' />
+                <img className='avatar' width={35} height={35} src={avatar} alt='' />
               </Col>
               <div onClick={openModalLogout} align={"middle"} className='logout pointer ml-4 flex align-center'>
                 {/* <img src={logoutIcon} alt='' /> */}

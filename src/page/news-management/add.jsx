@@ -4,24 +4,26 @@ import { ROUTE_PATH } from '../../core/common/appRouter'
 import { useNavigate, useParams } from 'react-router-dom';
 import api from '../../infrastucture/api';
 import InputTextCommon from '../../infrastucture/common/components/input/input-text';
-import { Button, Col, Row } from 'antd';
+import { Button, Col, Row, Upload } from 'antd';
 import { FullPageLoading } from '../../infrastucture/common/components/controls/loading';
 import InputSelectCommon from '../../infrastucture/common/components/input/select-common';
-import Constants from '../../core/common/constant';
+import InputDateCommon from '../../infrastucture/common/components/input/input-date';
+import InputTextAreaCommon from '../../infrastucture/common/components/input/input-text-area';
+import UploadFileCommon from '../../infrastucture/common/components/input/upload-file';
 import { WarningMessage } from '../../infrastucture/common/components/toast/notificationToast';
 import { ButtonCommon } from '../../infrastucture/common/components/button/button-common';
 
-export const AddUserManagement = () => {
+export const AddNewsManagement = () => {
     const [validate, setValidate] = useState({});
     const [loading, setLoading] = useState(false);
     const [submittedTime, setSubmittedTime] = useState();
-
+    const [imageName, setImageName] = useState("");
     const [_data, _setData] = useState({});
-    const dataUser = _data;
+    const dataNews = _data;
 
-    const setDataUser = (data) => {
-        Object.assign(dataUser, { ...data });
-        _setData({ ...dataUser });
+    const setDataNews = (data) => {
+        Object.assign(dataNews, { ...data });
+        _setData({ ...dataNews });
     };
 
     const isValidData = () => {
@@ -41,75 +43,63 @@ export const AddUserManagement = () => {
     const navigate = useNavigate();
 
     const onBack = () => {
-        navigate(ROUTE_PATH.USER)
+        navigate(ROUTE_PATH.NEWS)
     };
 
-    const onCreateUser = async () => {
+    const onCreateNews = async () => {
+        var formdata = new FormData();
         await setSubmittedTime(Date.now());
+        if (document.getElementById("file").files.length > 0) {
+            formdata.append(
+                "hinhAnh",
+                document.getElementById("file").files[0],
+                document.getElementById('file').value
+            );
+        }
+
+        formdata.append("tieuDe", dataNews.tieuDe);
+        formdata.append("status", 1);
+        formdata.append("tieuDeCon", dataNews.tieuDeCon);
+        formdata.append("moTaNgan", dataNews.moTaNgan);
+        formdata.append("firstName", dataNews.firstName);
+        formdata.append("chiTiet", dataNews.chiTiet);
+        formdata.append("ngayDang", dataNews.ngayDang);
+        formdata.append("luotXem", dataNews.luotXem);
+        formdata.append("soSaoTrungBinh", dataNews.soSaoTrungBinh);
+        formdata.append("diaChi", dataNews.diaChi);
+        formdata.append("userId", dataNews.userId || 1);
+        formdata.append("lat", 1);
+        formdata.append("long", 1);
+        formdata.append("geom", "POINT(-122.360 47.656)");
         if (isValidData()) {
-            await api.createUser({
-                userName: dataUser.userName,
-                password: "123456aA@",
-                status: 1,
-                role: dataUser.role,
-                email: dataUser.email,
-                firstName: dataUser.firstName,
-                lastName: dataUser.lastName,
-                sdt: dataUser.sdt,
-                address: dataUser.address
-            },
+            await api.createNews(
+                formdata,
                 onBack,
                 setLoading
             )
         }
         else {
             WarningMessage("Nhập thiếu thông tin", "Vui lòng nhập đầy đủ thông tin")
-        };
+        }
     };
+
     return (
-        <MainLayout breadcrumb={"Quản lý người dùng"} title={"Thêm người dùng"} redirect={ROUTE_PATH.USER}>
+        <MainLayout breadcrumb={"Quản lý bài viết"} title={"Thêm bài viết"} redirect={ROUTE_PATH.NEWS}>
             <div className='flex flex-col header-page'>
                 <div className='title-page mb-10'>
-                    Thêm mới người dùng
+                    Thêm mới bài viết
                 </div>
             </div>
             <div className='main-page h-100 flex-1 auto bg-white px-8 py-4'>
                 <div className='bg-white'>
-                    <Row gutter={[20, 20]}>
+                    <Row gutter={[10, 10]}>
                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                             <InputTextCommon
-                                label={"Tên người dùng"}
-                                attribute={"userName"}
+                                label={"Tiêu đề"}
+                                attribute={"tieuDe"}
                                 isRequired={true}
-                                dataAttribute={dataUser.userName}
-                                setData={setDataUser}
-                                disabled={false}
-                                validate={validate}
-                                setValidate={setValidate}
-                                submittedTime={submittedTime}
-                            />
-                        </Col>
-                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-                            <InputSelectCommon
-                                label={"Phân quyền"}
-                                attribute={"role"}
-                                isRequired={true}
-                                dataAttribute={dataUser.role}
-                                setData={setDataUser}
-                                disabled={false}
-                                validate={validate}
-                                setValidate={setValidate}
-                                submittedTime={submittedTime}
-                                listDataOfItem={Constants.StatusUser.List}
-                            />
-                        </Col>
-                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-                            <InputTextCommon
-                                label={"Email"}
-                                attribute={"email"}
-                                isRequired={true}
-                                dataAttribute={dataUser.email}
-                                setData={setDataUser}
+                                dataAttribute={dataNews.tieuDe}
+                                setData={setDataNews}
                                 disabled={false}
                                 validate={validate}
                                 setValidate={setValidate}
@@ -118,11 +108,50 @@ export const AddUserManagement = () => {
                         </Col>
                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                             <InputTextCommon
-                                label={"Họ"}
-                                attribute={"lastName"}
+                                label={"Tiêu đề con"}
+                                attribute={"tieuDeCon"}
                                 isRequired={true}
-                                dataAttribute={dataUser.lastName}
-                                setData={setDataUser}
+                                dataAttribute={dataNews.tieuDeCon}
+                                setData={setDataNews}
+                                disabled={false}
+                                validate={validate}
+                                setValidate={setValidate}
+                                submittedTime={submittedTime}
+                            />
+                        </Col>
+                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
+                            <InputTextAreaCommon
+                                label={"Mô tả ngắn"}
+                                attribute={"moTaNgan"}
+                                isRequired={true}
+                                dataAttribute={dataNews.moTaNgan}
+                                setData={setDataNews}
+                                disabled={false}
+                                validate={validate}
+                                setValidate={setValidate}
+                                submittedTime={submittedTime}
+                            />
+                        </Col>
+                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
+                            <InputTextAreaCommon
+                                label={"Chi tiết"}
+                                attribute={"chiTiet"}
+                                isRequired={true}
+                                dataAttribute={dataNews.chiTiet}
+                                setData={setDataNews}
+                                disabled={false}
+                                validate={validate}
+                                setValidate={setValidate}
+                                submittedTime={submittedTime}
+                            />
+                        </Col>
+                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
+                            <InputDateCommon
+                                label={"Ngày đăng"}
+                                attribute={"ngayDang"}
+                                isRequired={true}
+                                dataAttribute={dataNews.ngayDang}
+                                setData={setDataNews}
                                 disabled={false}
                                 validate={validate}
                                 setValidate={setValidate}
@@ -131,24 +160,11 @@ export const AddUserManagement = () => {
                         </Col>
                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                             <InputTextCommon
-                                label={"Tên"}
-                                attribute={"firstName"}
+                                label={"Số sao trung bình"}
+                                attribute={"soSaoTrungBinh"}
                                 isRequired={true}
-                                dataAttribute={dataUser.firstName}
-                                setData={setDataUser}
-                                disabled={false}
-                                validate={validate}
-                                setValidate={setValidate}
-                                submittedTime={submittedTime}
-                            />
-                        </Col>
-                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-                            <InputTextCommon
-                                label={"Số điện thoại"}
-                                attribute={"sdt"}
-                                isRequired={true}
-                                dataAttribute={dataUser.sdt}
-                                setData={setDataUser}
+                                dataAttribute={dataNews.soSaoTrungBinh}
+                                setData={setDataNews}
                                 disabled={false}
                                 validate={validate}
                                 setValidate={setValidate}
@@ -158,14 +174,34 @@ export const AddUserManagement = () => {
                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                             <InputTextCommon
                                 label={"Địa chỉ"}
-                                attribute={"address"}
+                                attribute={"diaChi"}
                                 isRequired={true}
-                                dataAttribute={dataUser.address}
-                                setData={setDataUser}
+                                dataAttribute={dataNews.diaChi}
+                                setData={setDataNews}
                                 disabled={false}
                                 validate={validate}
                                 setValidate={setValidate}
                                 submittedTime={submittedTime}
+                            />
+                        </Col>
+                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
+                            <InputTextCommon
+                                label={"Lượt xem"}
+                                attribute={"luotXem"}
+                                isRequired={true}
+                                dataAttribute={dataNews.luotXem}
+                                setData={setDataNews}
+                                disabled={false}
+                                validate={validate}
+                                setValidate={setValidate}
+                                submittedTime={submittedTime}
+                            />
+                        </Col>
+                        <Col xs={24} sm={24} md={24} lg={24} xl={24}>
+                            <UploadFileCommon
+                                label={'Hình ảnh'}
+                            // isRequired={true}
+                            // handleUpload={handleUpload}
                             />
                         </Col>
                     </Row>
@@ -177,12 +213,11 @@ export const AddUserManagement = () => {
                         <ButtonCommon onClick={onBack} classColor="grey">Quay lại</ButtonCommon>
                     </Col>
                     <Col className='mx-1'>
-                        <ButtonCommon onClick={onCreateUser} classColor="blue">Thêm mới</ButtonCommon>
+                        <ButtonCommon onClick={onCreateNews} classColor="blue">Thêm mới</ButtonCommon>
                     </Col>
                 </Row>
             </div >
             <FullPageLoading isLoading={loading} />
-
         </MainLayout >
     )
 }

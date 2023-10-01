@@ -6,22 +6,22 @@ import api from '../../infrastucture/api';
 import InputTextCommon from '../../infrastucture/common/components/input/input-text';
 import { Button, Col, Row } from 'antd';
 import { FullPageLoading } from '../../infrastucture/common/components/controls/loading';
-import InputSelectCommon from '../../infrastucture/common/components/input/select-common';
-import Constants from '../../core/common/constant';
+import InputDateCommon from '../../infrastucture/common/components/input/input-date';
+import InputNumberCommon from '../../infrastucture/common/components/input/input-number';
 import { WarningMessage } from '../../infrastucture/common/components/toast/notificationToast';
 import { ButtonCommon } from '../../infrastucture/common/components/button/button-common';
 
-export const AddUserManagement = () => {
+export const AddTourManagement = () => {
     const [validate, setValidate] = useState({});
     const [loading, setLoading] = useState(false);
     const [submittedTime, setSubmittedTime] = useState();
 
     const [_data, _setData] = useState({});
-    const dataUser = _data;
+    const dataTour = _data;
 
-    const setDataUser = (data) => {
-        Object.assign(dataUser, { ...data });
-        _setData({ ...dataUser });
+    const setDataTour = (data) => {
+        Object.assign(dataTour, { ...data });
+        _setData({ ...dataTour });
     };
 
     const isValidData = () => {
@@ -41,22 +41,23 @@ export const AddUserManagement = () => {
     const navigate = useNavigate();
 
     const onBack = () => {
-        navigate(ROUTE_PATH.USER)
+        navigate(ROUTE_PATH.TOUR)
     };
 
-    const onCreateUser = async () => {
+    const onCreateTour = async () => {
         await setSubmittedTime(Date.now());
         if (isValidData()) {
-            await api.createUser({
-                userName: dataUser.userName,
-                password: "123456aA@",
+            await api.createTour({
+                tenTour: dataTour.tenTour,
                 status: 1,
-                role: dataUser.role,
-                email: dataUser.email,
-                firstName: dataUser.firstName,
-                lastName: dataUser.lastName,
-                sdt: dataUser.sdt,
-                address: dataUser.address
+                chiPhi: dataTour.chiPhi,
+                ngayBatDau: dataTour.ngayBatDau,
+                ngayKetThuc: dataTour.ngayKetThuc,
+                khoangCach: parseInt(dataTour.khoangCach),
+                soDiaDiem: parseInt(dataTour.soDiaDiem),
+                soNgay: parseInt(dataTour.soNgay),
+                luotXem: 1,
+                userId: 1
             },
                 onBack,
                 setLoading
@@ -67,49 +68,22 @@ export const AddUserManagement = () => {
         };
     };
     return (
-        <MainLayout breadcrumb={"Quản lý người dùng"} title={"Thêm người dùng"} redirect={ROUTE_PATH.USER}>
+        <MainLayout breadcrumb={"Quản lý lịch trình"} title={"Thêm lịch trình"} redirect={ROUTE_PATH.TOUR}>
             <div className='flex flex-col header-page'>
                 <div className='title-page mb-10'>
-                    Thêm mới người dùng
+                    Thêm mới lịch trình
                 </div>
             </div>
             <div className='main-page h-100 flex-1 auto bg-white px-8 py-4'>
                 <div className='bg-white'>
-                    <Row gutter={[20, 20]}>
+                    <Row gutter={[10, 10]}>
                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                             <InputTextCommon
-                                label={"Tên người dùng"}
-                                attribute={"userName"}
+                                label={"Tên lịch trình"}
+                                attribute={"tenTour"}
                                 isRequired={true}
-                                dataAttribute={dataUser.userName}
-                                setData={setDataUser}
-                                disabled={false}
-                                validate={validate}
-                                setValidate={setValidate}
-                                submittedTime={submittedTime}
-                            />
-                        </Col>
-                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-                            <InputSelectCommon
-                                label={"Phân quyền"}
-                                attribute={"role"}
-                                isRequired={true}
-                                dataAttribute={dataUser.role}
-                                setData={setDataUser}
-                                disabled={false}
-                                validate={validate}
-                                setValidate={setValidate}
-                                submittedTime={submittedTime}
-                                listDataOfItem={Constants.StatusUser.List}
-                            />
-                        </Col>
-                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-                            <InputTextCommon
-                                label={"Email"}
-                                attribute={"email"}
-                                isRequired={true}
-                                dataAttribute={dataUser.email}
-                                setData={setDataUser}
+                                dataAttribute={dataTour.tenTour}
+                                setData={setDataTour}
                                 disabled={false}
                                 validate={validate}
                                 setValidate={setValidate}
@@ -118,11 +92,11 @@ export const AddUserManagement = () => {
                         </Col>
                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                             <InputTextCommon
-                                label={"Họ"}
-                                attribute={"lastName"}
+                                label={"Chi phí"}
+                                attribute={"chiPhi"}
                                 isRequired={true}
-                                dataAttribute={dataUser.lastName}
-                                setData={setDataUser}
+                                dataAttribute={dataTour.chiPhi}
+                                setData={setDataTour}
                                 disabled={false}
                                 validate={validate}
                                 setValidate={setValidate}
@@ -130,12 +104,12 @@ export const AddUserManagement = () => {
                             />
                         </Col>
                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-                            <InputTextCommon
-                                label={"Tên"}
-                                attribute={"firstName"}
+                            <InputDateCommon
+                                label={"Ngày bắt đầu"}
+                                attribute={"ngayBatDau"}
                                 isRequired={true}
-                                dataAttribute={dataUser.firstName}
-                                setData={setDataUser}
+                                dataAttribute={dataTour.ngayBatDau}
+                                setData={setDataTour}
                                 disabled={false}
                                 validate={validate}
                                 setValidate={setValidate}
@@ -143,12 +117,12 @@ export const AddUserManagement = () => {
                             />
                         </Col>
                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-                            <InputTextCommon
-                                label={"Số điện thoại"}
-                                attribute={"sdt"}
+                            <InputDateCommon
+                                label={"Ngày kết thúc"}
+                                attribute={"ngayKetThuc"}
                                 isRequired={true}
-                                dataAttribute={dataUser.sdt}
-                                setData={setDataUser}
+                                dataAttribute={dataTour.ngayKetThuc}
+                                setData={setDataTour}
                                 disabled={false}
                                 validate={validate}
                                 setValidate={setValidate}
@@ -156,12 +130,38 @@ export const AddUserManagement = () => {
                             />
                         </Col>
                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-                            <InputTextCommon
-                                label={"Địa chỉ"}
-                                attribute={"address"}
+                            <InputNumberCommon
+                                label={"Khoảng cách"}
+                                attribute={"khoangCach"}
                                 isRequired={true}
-                                dataAttribute={dataUser.address}
-                                setData={setDataUser}
+                                dataAttribute={dataTour.khoangCach}
+                                setData={setDataTour}
+                                disabled={false}
+                                validate={validate}
+                                setValidate={setValidate}
+                                submittedTime={submittedTime}
+                            />
+                        </Col>
+                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
+                            <InputNumberCommon
+                                label={"Số địa điểm"}
+                                attribute={"soDiaDiem"}
+                                isRequired={true}
+                                dataAttribute={dataTour.soDiaDiem}
+                                setData={setDataTour}
+                                disabled={false}
+                                validate={validate}
+                                setValidate={setValidate}
+                                submittedTime={submittedTime}
+                            />
+                        </Col>
+                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
+                            <InputNumberCommon
+                                label={"Số ngày"}
+                                attribute={"soNgay"}
+                                isRequired={true}
+                                dataAttribute={dataTour.soNgay}
+                                setData={setDataTour}
                                 disabled={false}
                                 validate={validate}
                                 setValidate={setValidate}
@@ -177,12 +177,11 @@ export const AddUserManagement = () => {
                         <ButtonCommon onClick={onBack} classColor="grey">Quay lại</ButtonCommon>
                     </Col>
                     <Col className='mx-1'>
-                        <ButtonCommon onClick={onCreateUser} classColor="blue">Thêm mới</ButtonCommon>
+                        <ButtonCommon onClick={onCreateTour} classColor="blue">Thêm mới</ButtonCommon>
                     </Col>
                 </Row>
             </div >
             <FullPageLoading isLoading={loading} />
-
         </MainLayout >
     )
 }

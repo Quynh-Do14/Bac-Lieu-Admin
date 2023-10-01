@@ -14,25 +14,26 @@ export default class Constants {
                 link: ROUTE_PATH.CATEGORY,
                 icon: <DatabaseOutlined />
             },
+
             {
-                label: "Quản lý địa điểm",
-                link: ROUTE_PATH.LOCATION,
-                icon: <EnvironmentOutlined />
-            },
-            {
-                label: "Quản lý tour",
-                link: ROUTE_PATH.TOUR,
+                label: "Quản lý lễ hội",
+                link: ROUTE_PATH.FESTIVAL,
                 icon: <ScheduleOutlined />
             },
             {
-                label: "Quản lý tin tức",
+                label: "Quản lý đặc sản",
+                link: ROUTE_PATH.SPECIALTY,
+                icon: <TagsOutlined />
+            },
+            {
+                label: "Quản lý bài viết",
                 link: ROUTE_PATH.NEWS,
                 icon: <ContainerOutlined />
             },
             {
-                label: "Quản lý đánh giá",
-                link: ROUTE_PATH.EVALUATE,
-                icon: <TagsOutlined />
+                label: "Quản lý lịch trình",
+                link: ROUTE_PATH.TOUR,
+                icon: <EnvironmentOutlined />
             },
             {
                 label: "Quản lý quận huyện",
@@ -93,4 +94,43 @@ export default class Constants {
         ]
     }
     static DefaultImage = "1"
+    static CategoryConfig = class {
+        static Location = class {
+            static label = "Location";
+            static value = 1;
+        }
+        static Stay = class {
+            static value = 2;
+            static label = "Lưu Trú";
+        }
+        static Cuisine = class {
+            static value = 3;
+            static label = "Ẩm Thức";
+        }
+        static Vehicle = class {
+            static value = 4;
+            static label = "Phương Tiện";
+        }
+        static Specialty = class {
+            static value = 5;
+            static label = "Đặc Sản";
+        }
+        static Tour = class {
+            static value = 6;
+            static label = "Tour";
+        }
+        static Festival = class {
+            static value = 7;
+            static label = "Lễ hội";
+        }
+        static list = [
+            { label: "Địa Điểm Du Lịch", value: 1 },
+            { label: "Lưu Trú", value: 2 },
+            { label: "Ẩm Thức", value: 3 },
+            { label: "Phương Tiện", value: 4 },
+            { label: "Đặc Sản", value: 5 },
+            { label: "Tour", value: 6 },
+            { label: "Lễ hội", value: 7 },
+        ]
+    }
 };

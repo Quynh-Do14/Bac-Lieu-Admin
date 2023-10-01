@@ -12,18 +12,22 @@ export const ROUTE_PATH = {
     VIEW_CATEGORY: `${PREFIX}/category/view/:id`,
     ADD_CATEGORY: `${PREFIX}/category/add`,
 
-    LOCATION: `${PREFIX}/location`,
-    VIEW_LOCATION: `${PREFIX}/location/view/:id`,
-    ADD_LOCATION: `${PREFIX}/location/add`,
+    SPECIALTY: `${PREFIX}/specialty`,
+    VIEW_SPECIALTY: `${PREFIX}/specialty/view/:id`,
+    ADD_SPECIALTY: `${PREFIX}/specialty/add`,
 
-    TOUR: `${PREFIX}/tour`,
-    VIEW_TOUR: `${PREFIX}/tour/view/:id`,
-    ADD_TOUR: `${PREFIX}/tour/add`,
+    FESTIVAL: `${PREFIX}/festival`,
+    VIEW_FESTIVAL: `${PREFIX}/festival/view/:id`,
+    ADD_FESTIVAL: `${PREFIX}/festival/add`,
 
     NEWS: `${PREFIX}/news`,
     VIEW_NEWS: `${PREFIX}/news/view/:id`,
     ADD_NEWS: `${PREFIX}/news/add`,
 
+    TOUR: `${PREFIX}/tour`,
+    VIEW_TOUR: `${PREFIX}/tour/view/:id`,
+    ADD_TOUR: `${PREFIX}/tour/add`,
+    
     EVALUATE: `${PREFIX}/evaluate`,
     VIEW_EVALUATE: `${PREFIX}/evaluate/view/:id`,
     ADD_EVALUATE: `${PREFIX}/evaluate/add`,

@@ -1,23 +1,21 @@
-import React, { useEffect, useState } from 'react'
-import { MainLayout } from '../../infrastucture/common/components/layout/MainLayout'
-import { BreadcrumbCommon } from '../../infrastucture/common/components/layout/Breabcumb'
-import "../../assets/css/breadcumb.css"
-import { Button, Col, Dropdown, Input, Menu, Row, Space, Table } from 'antd'
-import { useNavigate } from 'react-router-dom'
-import { ROUTE_PATH } from '../../core/common/appRouter'
-import api from '../../infrastucture/api'
-import Constants from '../../core/common/constant'
-import { InputSearchCommon } from '../../infrastucture/common/components/input/input-text-search'
-import { ButtonCommon } from '../../infrastucture/common/components/button/button-common'
-import Column from 'antd/es/table/Column'
-import { MenuOutlined } from '@ant-design/icons'
-import { StatusUser } from '../../infrastucture/common/components/controls/status'
-import { PaginationCommon } from '../../infrastucture/common/components/pagination/Pagination'
-import DialogConfirmCommon from '../../infrastucture/common/components/modal/dialogConfirm'
-import { FullPageLoading } from '../../infrastucture/common/components/controls/loading'
-let timeout
+import { Button, Col, Dropdown, Input, Menu, Row, Space, Table } from 'antd';
+import Column from 'antd/es/table/Column';
+import React, { useEffect, useState } from 'react';
+import { MenuOutlined, PlusOutlined } from '@ant-design/icons';
+import api from '../../infrastucture/api';
+import { FullPageLoading } from '../../infrastucture/common/components/controls/loading';
+import Constants from '../../core/common/constant';
+import { MainLayout } from '../../infrastucture/common/components/layout/MainLayout';
+import { useNavigate } from 'react-router-dom';
+import { ROUTE_PATH } from '../../core/common/appRouter';
+import DialogConfirmCommon from '../../infrastucture/common/components/modal/dialogConfirm';
+import { convertDateOnly } from '../../infrastucture/utils/helper';
+import { PaginationCommon } from '../../infrastucture/common/components/pagination/Pagination';
+import { InputSearchCommon } from '../../infrastucture/common/components/input/input-text-search';
+import { ButtonCommon } from '../../infrastucture/common/components/button/button-common';
 
-export const ListUserManagement = () => {
+let timeout
+export const ListNewsManagement = () => {
     const [searchText, setSearchText] = useState("");
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
@@ -30,19 +28,19 @@ export const ListUserManagement = () => {
 
     const navigate = useNavigate();
 
-    const onGetListUserAsync = async ({ keyWord = "", limit = pageSize, page = 1 }) => {
-        const response = await api.getAllUser(
-            `${Constants.Params.searchName}=${keyWord}&${Constants.Params.limit}=${limit}&${Constants.Params.page}= ${page}`,
+    const onGetListNewsAsync = async ({ keyWord = "", limit = pageSize, page = 1 }) => {
+        const response = await api.getAllNews(
+            `${Constants.Params.searchName}=${keyWord}&${Constants.Params.limit}=${limit}&${Constants.Params.page}=${page}`,
             setLoading
         )
-        if (response.data.users?.length > 0) {
-            setData(response.data.users);
+        if (response.data.tinTucs?.length > 0) {
+            setData(response.data.tinTucs);
         }
         setPagination(response.data.pagination);
         setTotalItem(response.data.totalItems);
     }
     const onSearch = async (keyWord = "", limit = pageSize, page = 1) => {
-        await onGetListUserAsync({ keyWord: keyWord, limit: limit, page: page })
+        await onGetListNewsAsync({ keyWord: keyWord, limit: limit, page: page })
     };
 
     useEffect(() => {
@@ -56,7 +54,6 @@ export const ListUserManagement = () => {
             onSearch(e.target.value, pageSize, page).then((_) => { });
         }, Constants.DEBOUNCE_SEARCH);
     };
-
     const onChangePage = async (value) => {
         setPage(value);
         await onSearch(searchText, pageSize, value).then((_) => { });
@@ -68,7 +65,6 @@ export const ListUserManagement = () => {
         setPage(1);
         await onSearch(searchText, value, page).then((_) => { });
     };
-    
     const onOpenModalDelete = (id) => {
         setIsDeleteModal(true);
         setIdSelected(id)
@@ -77,8 +73,8 @@ export const ListUserManagement = () => {
     const onCloseModalDelete = () => {
         setIsDeleteModal(false);
     };
-    const onDeleteUser = async () => {
-        await api.deleteUser({
+    const onDeleteNews = async () => {
+        await api.deleteNews({
             id: idSelected
         },
             onSearch,
@@ -88,22 +84,22 @@ export const ListUserManagement = () => {
     };
 
     const onNavigate = (id) => {
-        navigate(`${(ROUTE_PATH.VIEW_USER).replace(`${Constants.UseParams.Id}`, "")}${id}`);
+        navigate(`${(ROUTE_PATH.VIEW_NEWS).replace(`${Constants.UseParams.Id}`, "")}${id}`);
     }
     const listAction = (record) => {
         return (
             <Menu>
-                <Menu.Item className='title-action' onClick={() => onNavigate(record.id)}>
+                <Menu.Item className='title-action' onClick={() => onNavigate(record.idTinTuc)}>
                     <div className='text-base weight-600 px-1 py-0-5'>Sửa</div>
                 </Menu.Item>
-                <Menu.Item className='title-action' onClick={() => onOpenModalDelete(record.id)}>
+                <Menu.Item className='title-action' onClick={() => onOpenModalDelete(record.idTinTuc)}>
                     <div className='text-base weight-600 px-1 py-0-5'>Xóa</div>
                 </Menu.Item>
             </Menu>
         )
     };
     return (
-        <MainLayout breadcrumb={"Quản lý người dùng"} title={"Danh sách người dùng"} redirect={""}>
+        <MainLayout breadcrumb={"Quản lý bài viết"} title={"Danh sách bài viết"} redirect={""}>
             <div className='flex flex-col header-page'>
                 <Row className='filter-page px-5 py-2-5 mb-10' justify={"space-between"} align={"middle"}>
                     <Col xs={14} sm={14} md={10} lg={8}>
@@ -115,10 +111,10 @@ export const ListUserManagement = () => {
                         />
                     </Col>
                     <Col>
-                        <ButtonCommon classColor="gradient" onClick={() => navigate(ROUTE_PATH.ADD_USER)} >Thêm mới</ButtonCommon>
+                        <ButtonCommon classColor="gradient" onClick={() => navigate(ROUTE_PATH.ADD_NEWS)} >Thêm mới</ButtonCommon>
                     </Col>
                 </Row>
-                <div className='title-page mb-10'>Danh sách người dùng</div>
+                <div className='title-page mb-10'>Danh sách bài viết</div>
             </div>
             <div className='flex-1 auto bg-white content-page'>
                 <Table
@@ -127,41 +123,32 @@ export const ListUserManagement = () => {
                     className='table-common'
                 >
                     <Column
-                        title={"Tên người dùng"}
-                        key={"userName"}
-                        dataIndex={"userName"}
+                        title={"Tiêu đề"}
+                        key={"tieuDe"}
+                        dataIndex={"tieuDe"}
                     />
                     <Column
-                        title={"Phân quyền"}
-                        key={"role"}
-                        dataIndex={"role"}
-                        render={(value) => {
-                            return (
-                                <div>{StatusUser(value)} </div>
-                            )
-                        }}
+                        title={"Tiêu đề con"}
+                        key={"tieuDeCon"}
+                        dataIndex={"tieuDe"}
                     />
                     <Column
-                        title={"Họ tên"}
-                        key={"lastName"}
-                        dataIndex={"lastName"}
-                        render={(value, record) => {
-                            return (
-                                <div>
-                                    {record.lastName} {record.firstName}
-                                </div>
-                            )
-                        }}
+                        title={"Ngày đăng"}
+                        key={"ngayDang"}
+                        dataIndex={"ngayDang"}
+                        render={(val) => (
+                            <div>{convertDateOnly(val)} </div>
+                        )}
                     />
                     <Column
-                        title={"Số điện thoại"}
-                        key={"sdt"}
-                        dataIndex={"sdt"}
+                        title={"Lượt xem"}
+                        key={"luotXem"}
+                        dataIndex={"luotXem"}
                     />
                     <Column
                         title={"Địa chỉ"}
-                        key={"address"}
-                        dataIndex={"address"}
+                        key={"diaChi"}
+                        dataIndex={"diaChi"}
                     />
                     <Column
                         title={"Thao tác"}
@@ -196,15 +183,16 @@ export const ListUserManagement = () => {
                 />
             </div>
             <DialogConfirmCommon
-                message={"Bạn có muốn xóa người dùng này ra khỏi hệ thống"}
+                message={"Bạn có muốn xóa bài viết này ra khỏi hệ thống"}
                 titleCancel={"Bỏ qua"}
-                titleOk={"Xóa người dùng"}
+                titleOk={"Xóa bài viết"}
                 visible={isDeleteModal}
                 handleCancel={onCloseModalDelete}
-                handleOk={onDeleteUser}
+                handleOk={onDeleteNews}
                 title={"Xác nhận"}
             />
             <FullPageLoading isLoading={loading} />
         </MainLayout >
+
     )
 }

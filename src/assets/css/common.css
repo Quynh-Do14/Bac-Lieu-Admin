@@ -205,11 +205,20 @@
     letter-spacing: 0.15px;
 }
 
-.input-common .ant-input-number.css-dev-only-do-not-override-18iikkb.w-100 {
+.input-common .ant-input-number.css-dev-only-do-not-override-18iikkb.w-100,
+.input-common .ant-input-number.css-dev-only-do-not-override-pr0fja.w-100,
+.input-common .ant-picker.ant-picker-middle.css-dev-only-do-not-override-pr0fja.w-100.input-date-common {
+    border-radius: 0px !important;
+    height: 34px;
+}
+
+.input-common textarea.ant-input.css-dev-only-do-not-override-pr0fja {
     border-radius: 0px !important;
 }
 
-.input-common input.ant-input-number-input {
+.input-common input.ant-input-number-input,
+.input-common textarea.ant-input.css-dev-only-do-not-override-pr0fja,
+.input-common .ant-picker .ant-picker-input>input {
     color: var(--00-on-surface-high-emphasis, rgba(0, 0, 0, 0.87));
     font-size: 15px;
     font-style: normal;
@@ -250,7 +259,8 @@ button.ant-btn.css-dev-only-do-not-override-18iikkb.ant-btn-default.btn-on-page:
     background: #fff;
 }
 
-.table-common .ant-table-thead>tr>th {
+.table-common .ant-table-thead {
+    background: #F7F7F7 !important;
     position: sticky;
     top: 0;
     /* left: 0; */
@@ -330,6 +340,10 @@ button.ant-btn.css-dev-only-do-not-override-18iikkb.ant-btn-default.btn-on-page:
     font-weight: 400;
     line-height: 24px;
     letter-spacing: 0.75px;
+}
+
+:where(.css-dev-only-do-not-override-pr0fja).ant-pagination .ant-pagination-item a {
+    margin: 0;
 }
 
 /* Margin Tailwind css */
