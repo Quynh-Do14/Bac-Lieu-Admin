@@ -14,7 +14,7 @@ import { InputSearchCommon } from '../../infrastucture/common/components/input/i
 import { ButtonCommon } from '../../infrastucture/common/components/button/button-common';
 
 let timeout
-export const ListCategoryManagement = () => {
+export const ListCategoryNewsManagement = () => {
     const [searchText, setSearchText] = useState("");
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
@@ -28,11 +28,11 @@ export const ListCategoryManagement = () => {
     const navigate = useNavigate();
 
     const onGetListCategoryAsync = async ({ keyWord = "", limit = pageSize, page = 1 }) => {
-        const response = await api.getAllCategory(`${Constants.Params.searchName}=${keyWord}&${Constants.Params.limit}=${limit}&${Constants.Params.page}= ${page}`,
+        const response = await api.getAllCategoryByParentId(`${Constants.Params.parentId}=${Constants.CategoryConfig.News.value}&${Constants.Params.searchName}=${keyWord}&${Constants.Params.limit}=${limit}&${Constants.Params.page}= ${page}`,
             setLoading
         )
-        if (response.data.danhMucs?.length > 0) {
-            setData(response.data.danhMucs);
+        if (response.data.danhMucParentId?.length > 0) {
+            setData(response.data.danhMucParentId);
         }
         setPagination(response.data.pagination);
         setTotalItem(response.data.totalItems);
@@ -83,7 +83,7 @@ export const ListCategoryManagement = () => {
     };
 
     const onNavigate = (idDanhMucDiaDiem) => {
-        navigate(`${(ROUTE_PATH.VIEW_CATEGORY).replace(`${Constants.UseParams.Id}`, "")}${idDanhMucDiaDiem}`);
+        navigate(`${(ROUTE_PATH.VIEW_CATEGORY_NEWS).replace(`${Constants.UseParams.Id}`, "")}${idDanhMucDiaDiem}`);
     }
     const listAction = (record) => {
         return (
@@ -98,7 +98,7 @@ export const ListCategoryManagement = () => {
         )
     };
     return (
-        <MainLayout breadcrumb={"Quản lý danh mục"} title={"Danh sách danh mục"} redirect={""}>
+        <MainLayout breadcrumb={"Quản lý danh mục bài viết"} title={"Danh sách danh mục bài viết"} redirect={""}>
             <div className='flex flex-col header-page'>
                 <Row className='filter-page px-5 py-2-5 mb-10' justify={"space-between"} align={"middle"}>
                     <Col xs={14} sm={14} md={10} lg={8}>
@@ -110,10 +110,10 @@ export const ListCategoryManagement = () => {
                         />
                     </Col>
                     <Col>
-                        <ButtonCommon classColor="gradient" onClick={() => navigate(ROUTE_PATH.ADD_CATEGORY)} >Thêm mới</ButtonCommon>
+                        <ButtonCommon classColor="gradient" onClick={() => navigate(ROUTE_PATH.ADD_CATEGORY_NEWS)} >Thêm mới</ButtonCommon>
                     </Col>
                 </Row>
-                <div className='title-page mb-10'>Danh sách danh mục</div>
+                <div className='title-page mb-10'>Danh sách danh mục bài viết</div>
             </div>
             <div className='flex-1 auto bg-white content-page'>
                 <Table

@@ -9,7 +9,7 @@ import { FullPageLoading } from '../../infrastucture/common/components/controls/
 import { WarningMessage } from '../../infrastucture/common/components/toast/notificationToast';
 import { ButtonCommon } from '../../infrastucture/common/components/button/button-common';
 
-export const ViewCategoryManagement = () => {
+export const ViewCategoryServiceManagement = () => {
     const [validate, setValidate] = useState({});
     const [loading, setLoading] = useState(false);
     const [detailCategory, setDetailCategory] = useState({});
@@ -61,7 +61,7 @@ export const ViewCategoryManagement = () => {
     }, []);
 
     const onBack = () => {
-        navigate(ROUTE_PATH.CATEGORY)
+        navigate(ROUTE_PATH.CATEGORY_SERVICE)
     };
 
     const onUpdateCategory = async () => {
@@ -83,10 +83,10 @@ export const ViewCategoryManagement = () => {
     };
 
     return (
-        <MainLayout breadcrumb={"Quản lý danh mục"} title={"Xem chi tiết"} redirect={ROUTE_PATH.CATEGORY}>
+        <MainLayout breadcrumb={"Quản lý danh mục dịch vụ du lịch"} title={"Xem chi tiết"} redirect={ROUTE_PATH.CATEGORY_SERVICE}>
             <div className='flex flex-col header-page'>
                 <div className='title-page mb-10'>
-                    Xem chi tiết danh mục
+                    Xem chi tiết danh mục dịch vụ du lịch
                 </div>
             </div>
             <div className='main-page h-100 flex-1 auto bg-white px-8 py-4'>

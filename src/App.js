@@ -10,9 +10,6 @@ import { LoginPage } from './page/Auth/Login/Login';
 import { PrivateRoute } from './infrastucture/common/components/router/private-router';
 import { ViewUserManagement } from './page/user-management/view';
 import { AddUserManagement } from './page/user-management/add';
-import { ListCategoryManagement } from './page/category-management/list';
-import { ViewCategoryManagement } from './page/category-management/view';
-import { AddCategoryManagement } from './page/category-management/add';
 import { ListDistrictManagement } from './page/district-management/list';
 import { ViewDistrictManagement } from './page/district-management/view';
 import { AddDistrictManagement } from './page/district-management/add';
@@ -28,6 +25,12 @@ import { AddNewsManagement } from './page/news-management/add';
 import { ListTourManagement } from './page/tour-management/list';
 import { ViewTourManagement } from './page/tour-management/view';
 import { AddTourManagement } from './page/tour-management/add';
+import { ListCategoryNewsManagement } from './page/category-news-management/list';
+import { ViewCategoryNewsManagement } from './page/category-news-management/view';
+import { AddCategoryNewsManagement } from './page/category-news-management/add';
+import { ListCategoryServiceManagement } from './page/category-service-management/list';
+import { ViewCategoryServiceManagement } from './page/category-service-management/view';
+import { AddCategoryServiceManagement } from './page/category-service-management/add';
 
 const RouteRoot = () => {
   return (
@@ -40,9 +43,13 @@ const RouteRoot = () => {
         <Route path={ROUTE_PATH.VIEW_USER} element={<PrivateRoute component={ViewUserManagement} />} />
         <Route path={ROUTE_PATH.ADD_USER} element={<PrivateRoute component={AddUserManagement} />} />
 
-        <Route path={ROUTE_PATH.CATEGORY} element={<PrivateRoute component={ListCategoryManagement} />} />
-        <Route path={ROUTE_PATH.VIEW_CATEGORY} element={<PrivateRoute component={ViewCategoryManagement} />} />
-        <Route path={ROUTE_PATH.ADD_CATEGORY} element={<PrivateRoute component={AddCategoryManagement} />} />
+        <Route path={ROUTE_PATH.CATEGORY_NEWS} element={<PrivateRoute component={ListCategoryNewsManagement} />} />
+        <Route path={ROUTE_PATH.VIEW_CATEGORY_NEWS} element={<PrivateRoute component={ViewCategoryNewsManagement} />} />
+        <Route path={ROUTE_PATH.ADD_CATEGORY_NEWS} element={<PrivateRoute component={AddCategoryNewsManagement} />} />
+
+        <Route path={ROUTE_PATH.CATEGORY_SERVICE} element={<PrivateRoute component={ListCategoryServiceManagement} />} />
+        <Route path={ROUTE_PATH.VIEW_CATEGORY_SERVICE} element={<PrivateRoute component={ViewCategoryServiceManagement} />} />
+        <Route path={ROUTE_PATH.ADD_CATEGORY_SERVICE} element={<PrivateRoute component={AddCategoryServiceManagement} />} />
 
         <Route path={ROUTE_PATH.DISTRICT} element={<PrivateRoute component={ListDistrictManagement} />} />
         <Route path={ROUTE_PATH.VIEW_DISTRICT} element={<PrivateRoute component={ViewDistrictManagement} />} />

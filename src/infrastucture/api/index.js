@@ -40,6 +40,10 @@ const api = {
   /////
   getAllCategory: (params, setLoading) =>
     request.get(`${apiLinks.API}${Endpoint.Module.Category}?${params}`, setLoading),
+
+  getAllCategoryByParentId: (params, setLoading) =>
+    request.get(`${apiLinks.API}${Endpoint.Module.CategoryByParentId}?${params}`, setLoading),
+
   getCategoryById: (params, setLoading) =>
     request.get(`${apiLinks.API}${Endpoint.Module.Category}/${params.id}`, setLoading),
   createCategory: (data, callBack, setLoading) => {

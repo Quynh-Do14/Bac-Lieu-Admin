@@ -51,13 +51,13 @@ const InputSelectCommon = (props) => {
     return (
         <div>
             <Row className='mb-4 select-common'>
-                <Col xs={24} sm={10} lg={8} xl={6} className='title'>
+                <Col xs={24} sm={10} lg={10} xl={6} className='title'>
                     <span>
                         <span className='label'>{label}</span>
                         <span className='ml-1 is-required'>{isRequired ? "*" : ""} </span>
                     </span>
                 </Col>
-                <Col xs={24} sm={14} lg={16} xl={18}>
+                <Col xs={24} sm={14} lg={14} xl={18}>
                     <Select
                         showSearch
                         allowClear={false}

@@ -8,8 +8,9 @@ import { Button, Col, Row } from 'antd';
 import { FullPageLoading } from '../../infrastucture/common/components/controls/loading';
 import { WarningMessage } from '../../infrastucture/common/components/toast/notificationToast';
 import { ButtonCommon } from '../../infrastucture/common/components/button/button-common';
+import Constants from '../../core/common/constant';
 
-export const AddCategoryManagement = () => {
+export const AddCategoryNewsManagement = () => {
     const [validate, setValidate] = useState({});
     const [loading, setLoading] = useState(false);
     const [submittedTime, setSubmittedTime] = useState();
@@ -39,7 +40,7 @@ export const AddCategoryManagement = () => {
     const navigate = useNavigate();
 
     const onBack = () => {
-        navigate(ROUTE_PATH.CATEGORY)
+        navigate(ROUTE_PATH.CATEGORY_NEWS)
     };
 
     const onCreateCategory = async () => {
@@ -48,7 +49,7 @@ export const AddCategoryManagement = () => {
             await api.createCategory({
                 tenDanhMuc: dataCategory.tenDanhMuc,
                 status: 1,
-                parentId: 3
+                parentId: Constants.CategoryConfig.News.value
             },
                 onBack,
                 setLoading
@@ -59,10 +60,10 @@ export const AddCategoryManagement = () => {
         }
     };
     return (
-        <MainLayout breadcrumb={"Quản lý danh mục"} title={"Thêm danh mục"} redirect={ROUTE_PATH.CATEGORY}>
+        <MainLayout breadcrumb={"Quản lý danh mục bài viết"} title={"Thêm danh mục bài viết"} redirect={ROUTE_PATH.CATEGORY_NEWS}>
             <div className='flex flex-col header-page'>
                 <div className='title-page mb-10'>
-                    Thêm mới danh mục
+                    Thêm mới danh mục bài viết
                 </div>
             </div>
             <div className='main-page h-100 flex-1 auto bg-white px-8 py-4'>
