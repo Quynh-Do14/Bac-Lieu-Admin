@@ -33,19 +33,17 @@ export const ListNewsManagement = () => {
             `${Constants.Params.searchName}=${keyWord}&${Constants.Params.limit}=${limit}&${Constants.Params.page}=${page}`,
             setLoading
         )
-        if (response.data.tinTucs?.length > 0) {
-            setData(response.data.tinTucs);
-        }
+        setData(response.data.tinTucs);
         setPagination(response.data.pagination);
         setTotalItem(response.data.totalItems);
     }
     const onSearch = async (keyWord = "", limit = pageSize, page = 1) => {
-        await onGetListNewsAsync({ keyWord: keyWord, limit: limit, page: page })
+        await onGetListNewsAsync({ keyWord: keyWord, limit: limit, page: page });
     };
 
     useEffect(() => {
-        onSearch().then(_ => { })
-    }, [])
+        onSearch().then(_ => { });
+    }, []);
 
     const onChangeSearchText = (e) => {
         setSearchText(e.target.value);

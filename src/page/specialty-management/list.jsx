@@ -50,20 +50,18 @@ export const ListSpecialtyManagement = () => {
                 `${Constants.Params.searchName.trim()}=${keyWord}&${Constants.Params.limit}=${limit}&${Constants.Params.page}=${page}&${Constants.Params.idQuanHuyen}=${idQuanHuyen}&${Constants.Params.idDanhMuc}=${idDanhMuc}`,
                 setLoading
             )
-            if (response.data.diaDiems?.length > 0) {
-                setData(response.data.diaDiems);
-            }
+            setData(response.data.diaDiems);
             setPagination(response.data.pagination);
             setTotalItem(response.data.totalItems);
         }
     }
     const onSearch = async (keyWord = "", limit = pageSize, page = 1, idQuanHuyen = dataDistrict[0]?.idQuanHuyen, idDanhMuc = Constants.CategoryConfig.Specialty.value) => {
-        await onGetListLocationAsync({ keyWord: keyWord, limit: limit, page: page, idQuanHuyen: idQuanHuyen, idDanhMuc: idDanhMuc })
+        await onGetListLocationAsync({ keyWord: keyWord, limit: limit, page: page, idQuanHuyen: idQuanHuyen, idDanhMuc: idDanhMuc });
     };
 
     useEffect(() => {
-        onSearch().then(_ => { })
-    }, [])
+        onSearch().then(_ => { });
+    }, []);
 
     const onChangeSearchText = (e) => {
         setSearchText(e.target.value);

@@ -31,19 +31,17 @@ export const ListCategoryServiceManagement = () => {
         const response = await api.getAllCategoryByParentId(`${Constants.Params.parentId}=${Constants.CategoryConfig.Tour.value}&${Constants.Params.searchName}=${keyWord}&${Constants.Params.limit}=${limit}&${Constants.Params.page}= ${page}`,
             setLoading
         )
-        if (response.data.danhMucParentId?.length > 0) {
-            setData(response.data.danhMucParentId);
-        }
+        setData(response.data.danhMucParentId);
         setPagination(response.data.pagination);
         setTotalItem(response.data.totalItems);
     }
     const onSearch = async (keyWord = "", limit = pageSize, page = 1) => {
-        await onGetListCategoryAsync({ keyWord: keyWord, limit: limit, page: page })
+        await onGetListCategoryAsync({ keyWord: keyWord, limit: limit, page: page });
     };
 
     useEffect(() => {
-        onSearch().then(_ => { })
-    }, [])
+        onSearch().then(_ => { });
+    }, []);
 
     const onChangeSearchText = (e) => {
         setSearchText(e.target.value);

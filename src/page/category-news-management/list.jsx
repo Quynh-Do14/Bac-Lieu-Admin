@@ -31,9 +31,7 @@ export const ListCategoryNewsManagement = () => {
         const response = await api.getAllCategoryByParentId(`${Constants.Params.parentId}=${Constants.CategoryConfig.News.value}&${Constants.Params.searchName}=${keyWord}&${Constants.Params.limit}=${limit}&${Constants.Params.page}= ${page}`,
             setLoading
         )
-        if (response.data.danhMucParentId?.length > 0) {
-            setData(response.data.danhMucParentId);
-        }
+        setData(response.data.danhMucParentId);
         setPagination(response.data.pagination);
         setTotalItem(response.data.totalItems);
     }

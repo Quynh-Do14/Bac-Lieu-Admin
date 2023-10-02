@@ -64,8 +64,8 @@ export const AddNewsManagement = () => {
         formdata.append("firstName", dataNews.firstName);
         formdata.append("chiTiet", dataNews.chiTiet);
         formdata.append("ngayDang", dataNews.ngayDang);
-        formdata.append("luotXem", dataNews.luotXem);
-        formdata.append("soSaoTrungBinh", dataNews.soSaoTrungBinh);
+        formdata.append("luotXem", dataNews.luotXem || 0);
+        formdata.append("soSaoTrungBinh", dataNews.soSaoTrungBinh || 0);
         formdata.append("diaChi", dataNews.diaChi);
         formdata.append("userId", dataNews.userId || 1);
         formdata.append("lat", 1);
@@ -160,36 +160,10 @@ export const AddNewsManagement = () => {
                         </Col>
                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                             <InputTextCommon
-                                label={"Số sao trung bình"}
-                                attribute={"soSaoTrungBinh"}
-                                isRequired={true}
-                                dataAttribute={dataNews.soSaoTrungBinh}
-                                setData={setDataNews}
-                                disabled={false}
-                                validate={validate}
-                                setValidate={setValidate}
-                                submittedTime={submittedTime}
-                            />
-                        </Col>
-                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-                            <InputTextCommon
                                 label={"Địa chỉ"}
                                 attribute={"diaChi"}
                                 isRequired={true}
                                 dataAttribute={dataNews.diaChi}
-                                setData={setDataNews}
-                                disabled={false}
-                                validate={validate}
-                                setValidate={setValidate}
-                                submittedTime={submittedTime}
-                            />
-                        </Col>
-                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-                            <InputTextCommon
-                                label={"Lượt xem"}
-                                attribute={"luotXem"}
-                                isRequired={true}
-                                dataAttribute={dataNews.luotXem}
                                 setData={setDataNews}
                                 disabled={false}
                                 validate={validate}

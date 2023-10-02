@@ -32,9 +32,7 @@ export const ListTourManagement = () => {
         const response = await api.getAllTour(`${Constants.Params.searchName}=${keyWord}&${Constants.Params.limit}=${limit}&${Constants.Params.page}= ${page}`,
             setLoading
         )
-        if (response.data.tours?.length > 0) {
-            setData(response.data.tours)
-        }
+        setData(response.data.tours)
         setPagination(response.data.pagination);
         setTotalItem(response.data.totalItems);
     }
@@ -43,8 +41,8 @@ export const ListTourManagement = () => {
     };
 
     useEffect(() => {
-        onSearch().then(_ => { })
-    }, [])
+        onSearch().then(_ => { });
+    }, []);
 
     const onChangeSearchText = (e) => {
         setSearchText(e.target.value);

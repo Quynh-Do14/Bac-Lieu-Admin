@@ -66,13 +66,13 @@ export const AddSpecialtyManagement = () => {
         formdata.append("uriBaiViet", dataLocation.uriBaiViet);
         formdata.append("idQuanHuyen", dataLocation.idQuanHuyen);
         formdata.append("idDanhMuc", Constants.CategoryConfig.Specialty.value);
-        formdata.append("soSaoTrungBinh", dataLocation.soSaoTrungBinh);
+        formdata.append("soSaoTrungBinh", dataLocation.soSaoTrungBinh || 0);
         formdata.append("emailLienHe", dataLocation.emailLienHe);
         formdata.append("sdtLienHe", dataLocation.sdtLienHe);
         formdata.append("gioMoCua", dataLocation.gioMoCua);
         formdata.append("gioDongCua", dataLocation.gioDongCua);
         formdata.append("thoiGianGhe", dataLocation.thoiGianGhe);
-        formdata.append("luotXem", dataLocation.luotXem);
+        formdata.append("luotXem", dataLocation.luotXem || 0);
         formdata.append("lat", 1);
         formdata.append("long", 1);
         formdata.append("geom", "POINT(-122.360 47.656)");
@@ -179,19 +179,6 @@ export const AddSpecialtyManagement = () => {
                             />
                         </Col> */}
                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-                            <InputNumberCommon
-                                label={"Số sao trung bình"}
-                                attribute={"soSaoTrungBinh"}
-                                isRequired={true}
-                                dataAttribute={dataLocation.soSaoTrungBinh}
-                                setData={setDataLocation}
-                                disabled={false}
-                                validate={validate}
-                                setValidate={setValidate}
-                                submittedTime={submittedTime}
-                            />
-                        </Col>
-                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                             <InputTextCommon
                                 label={"Email liên hệ"}
                                 attribute={"emailLienHe"}
@@ -254,18 +241,6 @@ export const AddSpecialtyManagement = () => {
                                 validate={validate}
                                 setValidate={setValidate}
                                 submittedTime={submittedTime}
-                            />
-                        </Col>
-                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-                            <InputNumberCommon
-                                label={"Lượt xem"}
-                                attribute={"luotXem"}
-                                isRequired={true}
-                                dataAttribute={dataLocation.luotXem}
-                                setData={setDataLocation}
-                                disabled={false}
-                                validate={validate}
-                                setValidate={setValidate}
                             />
                         </Col>
                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>

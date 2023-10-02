@@ -192,36 +192,10 @@ export const ViewNewsManagement = () => {
                         </Col>
                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                             <InputTextCommon
-                                label={"Số sao trung bình"}
-                                attribute={"soSaoTrungBinh"}
-                                isRequired={true}
-                                dataAttribute={dataNews.soSaoTrungBinh}
-                                setData={setDataNews}
-                                disabled={false}
-                                validate={validate}
-                                setValidate={setValidate}
-                                submittedTime={submittedTime}
-                            />
-                        </Col>
-                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-                            <InputTextCommon
                                 label={"Địa chỉ"}
                                 attribute={"diaChi"}
                                 isRequired={true}
                                 dataAttribute={dataNews.diaChi}
-                                setData={setDataNews}
-                                disabled={false}
-                                validate={validate}
-                                setValidate={setValidate}
-                                submittedTime={submittedTime}
-                            />
-                        </Col>
-                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-                            <InputTextCommon
-                                label={"Lượt xem"}
-                                attribute={"luotXem"}
-                                isRequired={true}
-                                dataAttribute={dataNews.luotXem}
                                 setData={setDataNews}
                                 disabled={false}
                                 validate={validate}

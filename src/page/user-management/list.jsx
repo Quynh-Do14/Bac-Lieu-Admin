@@ -35,19 +35,18 @@ export const ListUserManagement = () => {
             `${Constants.Params.searchName}=${keyWord}&${Constants.Params.limit}=${limit}&${Constants.Params.page}= ${page}`,
             setLoading
         )
-        if (response.data.users?.length > 0) {
-            setData(response.data.users);
-        }
+        console.log('response', response);
+        setData(response.data.users);
         setPagination(response.data.pagination);
         setTotalItem(response.data.totalItems);
     }
     const onSearch = async (keyWord = "", limit = pageSize, page = 1) => {
-        await onGetListUserAsync({ keyWord: keyWord, limit: limit, page: page })
+        await onGetListUserAsync({ keyWord: keyWord, limit: limit, page: page });
     };
 
     useEffect(() => {
-        onSearch().then(_ => { })
-    }, [])
+        onSearch().then(_ => { });
+    }, []);
 
     const onChangeSearchText = (e) => {
         setSearchText(e.target.value);
@@ -68,7 +67,7 @@ export const ListUserManagement = () => {
         setPage(1);
         await onSearch(searchText, value, page).then((_) => { });
     };
-    
+
     const onOpenModalDelete = (id) => {
         setIsDeleteModal(true);
         setIdSelected(id)
@@ -124,7 +123,6 @@ export const ListUserManagement = () => {
                 <Table
                     dataSource={data}
                     pagination={false}
-                    className='table-common'
                 >
                     <Column
                         title={"Tên người dùng"}

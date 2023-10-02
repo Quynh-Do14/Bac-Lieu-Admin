@@ -31,19 +31,17 @@ export const ListDistrictManagement = () => {
         const response = await api.getAllDistrict(`${Constants.Params.searchName}=${keyWord}&${Constants.Params.limit}=${limit}&${Constants.Params.page}= ${page}`,
             setLoading
         )
-        if (response.data.quanHuyens?.length > 0) {
-            setData(response.data.quanHuyens);
-        }
+        setData(response.data.quanHuyens);
         setPagination(response.data.pagination);
         setTotalItem(response.data.totalItems);
     }
     const onSearch = async (keyWord = "", limit = pageSize, page = 1) => {
-        await onGetListDistrictAsync({ keyWord: keyWord, limit: limit, page: page })
+        await onGetListDistrictAsync({ keyWord: keyWord, limit: limit, page: page });
     };
 
     useEffect(() => {
-        onSearch().then(_ => { })
-    }, [])
+        onSearch().then(_ => { });
+    }, []);
 
     const onChangeSearchText = (e) => {
         setSearchText(e.target.value);

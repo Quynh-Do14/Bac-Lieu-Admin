@@ -228,19 +228,6 @@ export const ViewSpecialtyManagement = () => {
                             />
                         </Col>
                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-                            <InputNumberCommon
-                                label={"Số sao trung bình"}
-                                attribute={"soSaoTrungBinh"}
-                                isRequired={true}
-                                dataAttribute={dataLocation.soSaoTrungBinh}
-                                setData={setDataLocation}
-                                disabled={false}
-                                validate={validate}
-                                setValidate={setValidate}
-                                submittedTime={submittedTime}
-                            />
-                        </Col>
-                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                             <InputTextCommon
                                 label={"Email liên hệ"}
                                 attribute={"emailLienHe"}
@@ -303,18 +290,6 @@ export const ViewSpecialtyManagement = () => {
                                 validate={validate}
                                 setValidate={setValidate}
                                 submittedTime={submittedTime}
-                            />
-                        </Col>
-                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-                            <InputNumberCommon
-                                label={"Lượt xem"}
-                                attribute={"luotXem"}
-                                isRequired={true}
-                                dataAttribute={dataLocation.luotXem}
-                                setData={setDataLocation}
-                                disabled={false}
-                                validate={validate}
-                                setValidate={setValidate}
                             />
                         </Col>
                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>

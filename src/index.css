@@ -86,6 +86,23 @@ code {
   letter-spacing: 0.15px;
 }
 
+.button-common button.ant-btn.css-dev-only-do-not-override-pr0fja.ant-btn-default.upload {
+  border-radius: 5px;
+  background: #E8EAEE;
+  display: flex;
+  width: 130px;
+  height: 44px;
+  justify-content: center;
+  align-items: center;
+
+  color: #353434;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.15px;
+}
+
 .ant-notification-notice.success-message.css-dev-only-do-not-override-pr0fja.ant-notification-notice-closable {
   border-radius: 5px;
   background: #D9FFDC;
