@@ -154,7 +154,7 @@ export const ViewFestivalManagement = () => {
     return (
         <MainLayout breadcrumb={"Quản lý lễ hội"} title={"Xem chi tiết"} redirect={ROUTE_PATH.FESTIVAL}>
             <div className='flex flex-col header-page'>
-                <div className='title-page mb-10'>
+                <div className='title-page pt-5 pb-7'>
                     Xem thông tin chi tiết lễ hội
                 </div>
             </div>

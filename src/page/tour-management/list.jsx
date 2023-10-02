@@ -115,7 +115,7 @@ export const ListTourManagement = () => {
                         <ButtonCommon classColor="gradient" onClick={() => navigate(ROUTE_PATH.ADD_TOUR)} >Thêm mới</ButtonCommon>
                     </Col>
                 </Row>
-                <div className='title-page mb-10'>Danh sách lịch trình</div>
+                <div className='title-page pt-5 pb-7'>Danh sách lịch trình</div>
             </div>
             <div className='flex-1 auto bg-white content-page'>
                 <div className=''>

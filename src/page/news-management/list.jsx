@@ -114,7 +114,7 @@ export const ListNewsManagement = () => {
                         <ButtonCommon classColor="gradient" onClick={() => navigate(ROUTE_PATH.ADD_NEWS)} >Thêm mới</ButtonCommon>
                     </Col>
                 </Row>
-                <div className='title-page mb-10'>Danh sách bài viết</div>
+                <div className='title-page pt-5 pb-7'>Danh sách bài viết</div>
             </div>
             <div className='flex-1 auto bg-white content-page'>
                 <Table

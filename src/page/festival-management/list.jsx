@@ -194,7 +194,7 @@ export const ListFestivalManagement = () => {
                         <ButtonCommon classColor="gradient" onClick={() => navigate(ROUTE_PATH.ADD_FESTIVAL)} >Thêm mới</ButtonCommon>
                     </Col>
                 </Row>
-                <div className='title-page mb-10'>Danh sách lễ hội</div>
+                <div className='title-page pt-5 pb-7'>Danh sách lễ hội</div>
             </div>
             <div className='flex-1 auto bg-white content-page'>
                 <Table

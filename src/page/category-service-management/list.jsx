@@ -113,7 +113,7 @@ export const ListCategoryServiceManagement = () => {
                         <ButtonCommon classColor="gradient" onClick={() => navigate(ROUTE_PATH.ADD_CATEGORY_SERVICE)} >Thêm mới</ButtonCommon>
                     </Col>
                 </Row>
-                <div className='title-page mb-10'>Danh sách danh mục dịch vụ du lịch</div>
+                <div className='title-page pt-5 pb-7'>Danh sách danh mục dịch vụ du lịch</div>
             </div>
             <div className='flex-1 auto bg-white content-page'>
                 <Table

@@ -96,7 +96,7 @@ export const ViewUserManagement = () => {
     return (
         <MainLayout breadcrumb={"Quản lý người dùng"} title="Xem chi tiết" redirect={ROUTE_PATH.USER}>
             <div className='flex flex-col header-page'>
-                <div className='title-page mb-10'>
+                <div className='title-page pt-5 pb-7'>
                     Xem thông tin chi tiết người dùng
                 </div>
             </div>

@@ -85,7 +85,7 @@ export const ViewCategoryNewsManagement = () => {
     return (
         <MainLayout breadcrumb={"Quản lý danh mục bài viết"} title={"Xem chi tiết"} redirect={ROUTE_PATH.CATEGORY_NEWS}>
             <div className='flex flex-col header-page'>
-                <div className='title-page mb-10'>
+                <div className='title-page pt-5 pb-7'>
                     Xem chi tiết danh mục bài viết
                 </div>
             </div>

@@ -60,7 +60,7 @@ export const AddDistrictManagement = () => {
     return (
         <MainLayout breadcrumb={"Quản lý quận huyện"} title={"Thêm quận huyện"} redirect={ROUTE_PATH.DISTRICT}>
             <div className='flex flex-col header-page'>
-                <div className='title-page mb-10'>
+                <div className='title-page pt-5 pb-7'>
                     Thêm mới quận huyện
                 </div>
             </div>

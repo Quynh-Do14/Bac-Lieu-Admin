@@ -86,7 +86,7 @@ export const AddNewsManagement = () => {
     return (
         <MainLayout breadcrumb={"Quản lý bài viết"} title={"Thêm bài viết"} redirect={ROUTE_PATH.NEWS}>
             <div className='flex flex-col header-page'>
-                <div className='title-page mb-10'>
+                <div className='title-page pt-5 pb-7'>
                     Thêm mới bài viết
                 </div>
             </div>

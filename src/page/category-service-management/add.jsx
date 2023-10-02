@@ -62,7 +62,7 @@ export const AddCategoryServiceManagement = () => {
     return (
         <MainLayout breadcrumb={"Quản lý danh mục dịch vụ du lịch"} title={"Thêm danh mục dịch vụ du lịch"} redirect={ROUTE_PATH.CATEGORY_SERVICE}>
             <div className='flex flex-col header-page'>
-                <div className='title-page mb-10'>
+                <div className='title-page pt-5 pb-7'>
                     Thêm mới danh mục dịch vụ du lịch
                 </div>
             </div>

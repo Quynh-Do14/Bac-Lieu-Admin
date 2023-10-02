@@ -91,7 +91,7 @@ export const AddSpecialtyManagement = () => {
     return (
         <MainLayout breadcrumb={"Quản lý đặc sản"} title={"Thêm đặc sản"} redirect={ROUTE_PATH.SPECIALTY}>
             <div className='flex flex-col header-page'>
-                <div className='title-page mb-10'>
+                <div className='title-page pt-5 pb-7'>
                     Thêm mới đặc sản
                 </div>
             </div>

@@ -113,7 +113,7 @@ export const ListCategoryNewsManagement = () => {
                         <ButtonCommon classColor="gradient" onClick={() => navigate(ROUTE_PATH.ADD_CATEGORY_NEWS)} >Thêm mới</ButtonCommon>
                     </Col>
                 </Row>
-                <div className='title-page mb-10'>Danh sách danh mục bài viết</div>
+                <div className='title-page pt-5 pb-7'>Danh sách danh mục bài viết</div>
             </div>
             <div className='flex-1 auto bg-white content-page'>
                 <Table

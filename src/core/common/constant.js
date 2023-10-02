@@ -86,7 +86,7 @@ export default class Constants {
         }
         static COMMITTEE = class {
             static value = "COMMITTEE";
-            static label = "Ủy ban nhân dân Tỉnh, các sở ban ngành Đắk Nông";
+            static label = "Ủy ban nhân dân Tỉnh";
         }
         static DEPARTMENT = class {
             static value = "DEPARTMENT";
@@ -98,7 +98,7 @@ export default class Constants {
         }
         static List = [
             { label: "Quản trị viên", value: "ADMIN" },
-            { label: "Ủy ban nhân dân Tỉnh, các sở ban ngành Đắk Nông", value: "COMMITTEE" },
+            { label: "Ủy ban nhân dân Tỉnh", value: "COMMITTEE" },
             { label: "Sở VHTT&DL", value: "DEPARTMENT" },
             { label: "Người dân", value: "USER" },
         ]

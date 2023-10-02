@@ -118,7 +118,7 @@ export const ListUserManagement = () => {
                         <ButtonCommon classColor="gradient" onClick={() => navigate(ROUTE_PATH.ADD_USER)} >Thêm mới</ButtonCommon>
                     </Col>
                 </Row>
-                <div className='title-page mb-10'>Danh sách người dùng</div>
+                <div className='title-page pt-5 pb-7'>Danh sách người dùng</div>
             </div>
             <div className='flex-1 auto bg-white content-page'>
                 <Table

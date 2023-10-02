@@ -1,5 +1,5 @@
 import { Layout, Menu, Row, Col } from 'antd';
-import { MenuUnfoldOutlined, MenuFoldOutlined, LogoutOutlined, DoubleLeftOutlined, DoubleRightOutlined } from '@ant-design/icons'
+import { DoubleLeftOutlined, DoubleRightOutlined } from '@ant-design/icons'
 import React, { useEffect, useState } from 'react';
 import "../../../../assets/css/MainLayout.css"
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -78,7 +78,7 @@ export const MainLayout = ({ ...props }) => {
           </Col>
           <Col>
             <Row align={"middle"} >
-              <Col className='mr-2'>
+              <Col className='mr-6'>
                 <div className='user-name'>
                   User name
                 </div>
@@ -87,11 +87,10 @@ export const MainLayout = ({ ...props }) => {
                 </div>
               </Col>
               <Col>
-                <img className='avatar' width={35} height={35} src={avatar} alt='' />
+                <img className='avatar pointer' width={56} height={56} src={avatar} alt='' />
               </Col>
-              <div onClick={openModalLogout} align={"middle"} className='logout pointer ml-4 flex align-center'>
-                {/* <img src={logoutIcon} alt='' /> */}
-                <LogoutOutlined className='text-base' />
+              <div onClick={openModalLogout} align={"middle"} className='logout pointer ml-4 p-2-5 flex align-center'>
+                <img src={logoutIcon} alt='' />
                 <div className='ml-1'>Đăng xuất</div>
               </div>
             </Row>

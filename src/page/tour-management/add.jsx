@@ -70,7 +70,7 @@ export const AddTourManagement = () => {
     return (
         <MainLayout breadcrumb={"Quản lý lịch trình"} title={"Thêm lịch trình"} redirect={ROUTE_PATH.TOUR}>
             <div className='flex flex-col header-page'>
-                <div className='title-page mb-10'>
+                <div className='title-page pt-5 pb-7'>
                     Thêm mới lịch trình
                 </div>
             </div>
