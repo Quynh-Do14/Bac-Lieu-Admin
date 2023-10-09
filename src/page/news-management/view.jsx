@@ -89,7 +89,7 @@ export const ViewNewsManagement = () => {
             );
         }
         else {
-            formdata.append("hinhAnh", detailLocation.hinhAnh);
+            formdata.append("hinhAnh", dataNews.hinhAnh);
         }
         formdata.append("tieuDe", dataNews.tieuDe);
         formdata.append("status", 1);
