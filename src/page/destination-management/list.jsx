@@ -215,11 +215,13 @@ export const ListDestinationManagement = () => {
                         title={"Tên điểm đến"}
                         key={"tenDiaDiem"}
                         dataIndex={"tenDiaDiem"}
+                        width={"300px"}
                     />
                     <Column
                         title={"Địa chỉ"}
                         key={"diaChi"}
                         dataIndex={"diaChi"}
+                        width={"300px"}
                     />
                     <Column
                         title={"Email liên hệ"}
@@ -230,11 +232,13 @@ export const ListDestinationManagement = () => {
                         title={"SĐT liên hệ"}
                         key={"sdtLienHe"}
                         dataIndex={"sdtLienHe"}
+                        width={"200px"}
                     />
                     <Column
                         title={"Giờ mở cửa"}
                         key={"gioDongCua"}
                         dataIndex={"gioDongCua"}
+                        width={"200px"}
                         render={(val) => (
                             <div>{(val)} </div>
                         )}
@@ -243,6 +247,7 @@ export const ListDestinationManagement = () => {
                         title={"Giờ đóng cửa"}
                         key={"gioMoCua"}
                         dataIndex={"gioMoCua"}
+                        width={"200px"}
                         render={(val) => (
                             <div>{(val)} </div>
                         )}
@@ -254,7 +259,7 @@ export const ListDestinationManagement = () => {
                     /> */}
                     <Column
                         title={"Thao tác"}
-                        // width={"60px"}
+                        width={"60px"}
                         fixed="right"
                         align='center'
                         render={(action, record) => (

@@ -215,26 +215,31 @@ export const ListFestivalManagement = () => {
                         title={"Tên lễ hội"}
                         key={"tenDiaDiem"}
                         dataIndex={"tenDiaDiem"}
+                        width={"300px"}
                     />
                     <Column
                         title={"Địa chỉ"}
                         key={"diaChi"}
                         dataIndex={"diaChi"}
+                        width={"300px"}
                     />
                     <Column
                         title={"Email liên hệ"}
                         key={"emailLienHe"}
                         dataIndex={"emailLienHe"}
+                        width={"200px"}
                     />
                     <Column
                         title={"SĐT liên hệ"}
                         key={"sdtLienHe"}
                         dataIndex={"sdtLienHe"}
+                        width={"200px"}
                     />
                     <Column
                         title={"Ngày bắt đầu"}
                         key={"gioMoCua"}
                         dataIndex={"gioMoCua"}
+                        width={"200px"}
                         render={(val) => (
                             <div>{(val)} </div>
                         )}
@@ -243,6 +248,7 @@ export const ListFestivalManagement = () => {
                         title={"Ngày kết thúc"}
                         key={"gioDongCua"}
                         dataIndex={"gioDongCua"}
+                        width={"200px"}
                         render={(val) => (
                             <div>{(val)} </div>
                         )}
@@ -254,7 +260,7 @@ export const ListFestivalManagement = () => {
                     /> */}
                     <Column
                         title={"Thao tác"}
-                        // width={"60px"}
+                        width={"60px"}
                         fixed="right"
                         align='center'
                         render={(action, record) => (

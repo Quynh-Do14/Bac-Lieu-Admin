@@ -214,26 +214,31 @@ export const ListSpecialtyManagement = () => {
                         title={"Tên đặc sản"}
                         key={"tenDiaDiem"}
                         dataIndex={"tenDiaDiem"}
+                        width={"300px"}
                     />
                     <Column
                         title={"Địa chỉ"}
                         key={"diaChi"}
                         dataIndex={"diaChi"}
+                        width={"300px"}
                     />
                     <Column
                         title={"Email liên hệ"}
                         key={"emailLienHe"}
                         dataIndex={"emailLienHe"}
+                        width={"200px"}
                     />
                     <Column
                         title={"SĐT liên hệ"}
                         key={"sdtLienHe"}
                         dataIndex={"sdtLienHe"}
+                        width={"200px"}
                     />
-                    <Column
+                    {/* <Column
                         title={"Giờ mở cửa"}
                         key={"gioDongCua"}
                         dataIndex={"gioDongCua"}
+                        width={"200px"}
                         render={(val) => (
                             <div>{convertTimeOnly(val)} </div>
                         )}
@@ -242,18 +247,20 @@ export const ListSpecialtyManagement = () => {
                         title={"Giờ đóng cửa"}
                         key={"gioMoCua"}
                         dataIndex={"gioMoCua"}
+                        width={"200px"}
                         render={(val) => (
                             <div>{convertTimeOnly(val)} </div>
                         )}
-                    />
+                    /> */}
                     <Column
-                        title={"Thời gian ghé"}
+                        title={"Dữ liệu ảnh"}
                         key={"thoiGianGhe"}
                         dataIndex={"thoiGianGhe"}
+                        width={"200px"}
                     />
                     <Column
                         title={"Thao tác"}
-                        // width={"60px"}
+                        width={"60px"}
                         fixed="right"
                         align='center'
                         render={(action, record) => (

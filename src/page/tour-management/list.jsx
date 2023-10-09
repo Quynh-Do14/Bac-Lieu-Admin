@@ -136,16 +136,20 @@ export const ListTourManagement = () => {
                             title={"Tên lịch trình"}
                             key={"tenTour"}
                             dataIndex={"tenTour"}
+                            width={"200px"}
+
                         />
                         <Column
                             title={"Chi phí"}
                             key={"chiPhi"}
                             dataIndex={"chiPhi"}
+                            width={"200px"}
                         />
                         <Column
                             title={"Ngày bắt đầu"}
                             key={"ngayBatDau"}
                             dataIndex={"ngayBatDau"}
+                            width={"200px"}
                             render={(val) => (
                                 <div>{convertDateOnly(val)} </div>
                             )}
@@ -154,6 +158,7 @@ export const ListTourManagement = () => {
                             title={"Ngày kết thúc"}
                             key={"ngayKetThuc"}
                             dataIndex={"ngayKetThuc"}
+                            width={"200px"}
                             render={(val) => (
                                 <div>{convertDateOnly(val)} </div>
                             )}
@@ -162,26 +167,23 @@ export const ListTourManagement = () => {
                             title={"Số địa điểm"}
                             key={"soDiaDiem"}
                             dataIndex={"soDiaDiem"}
-                        />
-
-                        <Column
-                            title={"Trạng thái"}
-                            key={"status"}
-                            dataIndex={"status"}
+                            width={"100px"}
                         />
                         <Column
                             title={"Số ngày"}
                             key={"soNgay"}
                             dataIndex={"soNgay"}
+                            width={"50px"}
                         />
                         <Column
                             title={"Lượt xem"}
                             key={"luotXem"}
                             dataIndex={"luotXem"}
+                            width={"50px"}
                         />
                         <Column
                             title={"Action"}
-                            // width={"60px"}
+                            width={"60px"}
                             fixed="right"
                             align='center'
                             render={(action, record) => (

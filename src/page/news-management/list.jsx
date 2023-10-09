@@ -135,16 +135,19 @@ export const ListNewsManagement = () => {
                         title={"Tiêu đề"}
                         key={"tieuDe"}
                         dataIndex={"tieuDe"}
+                        width={"200px"}
                     />
                     <Column
                         title={"Tiêu đề con"}
                         key={"tieuDeCon"}
                         dataIndex={"tieuDe"}
+                        width={"200px"}
                     />
                     <Column
                         title={"Ngày đăng"}
                         key={"ngayDang"}
                         dataIndex={"ngayDang"}
+                        width={"200px"}
                         render={(val) => (
                             <div>{convertDateOnly(val)} </div>
                         )}
@@ -153,15 +156,17 @@ export const ListNewsManagement = () => {
                         title={"Lượt xem"}
                         key={"luotXem"}
                         dataIndex={"luotXem"}
+                        width={"100px"}
                     />
                     <Column
                         title={"Địa chỉ"}
                         key={"diaChi"}
                         dataIndex={"diaChi"}
+                        width={"300px"}
                     />
                     <Column
                         title={"Thao tác"}
-                        // width={"60px"}
+                        width={"60px"}
                         fixed="right"
                         align='center'
                         render={(action, record) => (

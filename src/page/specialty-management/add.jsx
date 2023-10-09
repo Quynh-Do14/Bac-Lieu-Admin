@@ -191,7 +191,7 @@ export const AddSpecialtyManagement = () => {
                                 submittedTime={submittedTime}
                             />
                         </Col>
-                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
+                        {/* <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                             <InputTimePickerCommon
                                 label={"Giờ mở cửa"}
                                 attribute={"gioMoCua"}
@@ -216,7 +216,7 @@ export const AddSpecialtyManagement = () => {
                                 setValidate={setValidate}
                                 submittedTime={submittedTime}
                             />
-                        </Col>
+                        </Col> */}
                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                             <InputNumberCommon
                                 label={"Thời gian ghé"}
