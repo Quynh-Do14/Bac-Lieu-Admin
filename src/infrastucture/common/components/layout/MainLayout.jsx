@@ -72,9 +72,9 @@ export const MainLayout = ({ ...props }) => {
   return (
     <div className="main-layout">
       <Layout>
-        <Row className='header px-4' justify={"space-between"} align={"middle"}>
+        <Row className='header px-6' justify={"space-between"} align={"middle"}>
           <Col className='flex align-center'>
-            <img src={logo} alt='' />
+            <img src={logo} alt='' width={100}/>
           </Col>
           <Col>
             <Row align={"middle"} >

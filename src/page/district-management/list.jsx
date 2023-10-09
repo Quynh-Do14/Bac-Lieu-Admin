@@ -28,7 +28,7 @@ export const ListDistrictManagement = () => {
     const navigate = useNavigate();
 
     const onGetListDistrictAsync = async ({ keyWord = "", limit = pageSize, page = 1 }) => {
-        const response = await api.getAllDistrict(`${Constants.Params.searchName}=${keyWord}&${Constants.Params.limit}=${limit}&${Constants.Params.page}= ${page}`,
+        const response = await api.getAllDistrict(`${Constants.Params.search}=${keyWord.trim()}&${Constants.Params.limit}=${limit}&${Constants.Params.page}= ${page}`,
             setLoading
         )
         setData(response.data.quanHuyens);

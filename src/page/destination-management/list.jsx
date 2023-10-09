@@ -18,7 +18,7 @@ import { ButtonCommon } from '../../infrastucture/common/components/button/butto
 import { InputSearchCommon } from '../../infrastucture/common/components/input/input-text-search';
 
 let timeout
-export const ListFestivalManagement = () => {
+export const ListDestinationManagement = () => {
     const [searchText, setSearchText] = useState("");
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
@@ -33,7 +33,7 @@ export const ListFestivalManagement = () => {
     const dataDistrict = useRecoilValue(DistrictState);
 
     const [districtId, setDictrictId] = useState();
-    const [categoryId, setCategoryId] = useState(Constants.CategoryConfig.Festival.value);
+    const [categoryId, setCategoryId] = useState(Constants.CategoryConfig.Destination.value);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -55,7 +55,7 @@ export const ListFestivalManagement = () => {
             setTotalItem(response.data.totalItems);
         }
     }
-    const onSearch = async (keyWord = "", limit = pageSize, page = 1, idQuanHuyen = dataDistrict[0]?.idQuanHuyen, idDanhMuc = Constants.CategoryConfig.Festival.value) => {
+    const onSearch = async (keyWord = "", limit = pageSize, page = 1, idQuanHuyen = dataDistrict[0]?.idQuanHuyen, idDanhMuc = Constants.CategoryConfig.Destination.value) => {
         await onGetListLocationAsync({ keyWord: keyWord, limit: limit, page: page, idQuanHuyen: idQuanHuyen, idDanhMuc: idDanhMuc });
     };
 
@@ -108,7 +108,7 @@ export const ListFestivalManagement = () => {
         onSearch("", pageSize, page, districtId, value).then((_) => { });
     };
     const onNavigate = (id) => {
-        navigate(`${(ROUTE_PATH.VIEW_FESTIVAL).replace(`${Constants.UseParams.Id}`, "")}${id}`);
+        navigate(`${(ROUTE_PATH.VIEW_DESTINATION).replace(`${Constants.UseParams.Id}`, "")}${id}`);
     }
     const listAction = (record) => {
         return (
@@ -123,7 +123,7 @@ export const ListFestivalManagement = () => {
         )
     };
     return (
-        <MainLayout breadcrumb={"Quản lý lễ hội"} title={"Danh sách lễ hội"} redirect={""}>
+        <MainLayout breadcrumb={"Quản lý điểm đến"} title={"Danh sách điểm đến"} redirect={""}>
             <div className='flex flex-col header-page'>
                 <Row className='mb-4' gutter={[10, 10]} justify={"space-between"} align={"middle"}>
                     <Col xs={24} sm={24} lg={16}>
@@ -189,10 +189,10 @@ export const ListFestivalManagement = () => {
 
                     </Col>
                     <Col xs={4} sm={4} lg={4}>
-                        <ButtonCommon classColor="gradient" onClick={() => navigate(ROUTE_PATH.ADD_FESTIVAL)} >Thêm mới</ButtonCommon>
+                        <ButtonCommon classColor="gradient" onClick={() => navigate(ROUTE_PATH.ADD_DESTINATION)} >Thêm mới</ButtonCommon>
                     </Col>
                 </Row>
-                <div className='title-page pt-5 pb-7'>Danh sách lễ hội</div>
+                <div className='title-page pt-5 pb-7'>Danh sách điểm đến</div>
             </div>
             <div className='flex-1 auto bg-white content-page'>
                 <Table
@@ -201,7 +201,7 @@ export const ListFestivalManagement = () => {
                     className='table-common'
                 >
                     <Column
-                        title={"Tên lễ hội"}
+                        title={"Tên điểm đến"}
                         key={"tenDiaDiem"}
                         dataIndex={"tenDiaDiem"}
                     />
@@ -221,17 +221,17 @@ export const ListFestivalManagement = () => {
                         dataIndex={"sdtLienHe"}
                     />
                     <Column
-                        title={"Ngày bắt đầu"}
-                        key={"gioMoCua"}
-                        dataIndex={"gioMoCua"}
+                        title={"Giờ mở cửa"}
+                        key={"gioDongCua"}
+                        dataIndex={"gioDongCua"}
                         render={(val) => (
                             <div>{(val)} </div>
                         )}
                     />
                     <Column
-                        title={"Ngày kết thúc"}
-                        key={"gioDongCua"}
-                        dataIndex={"gioDongCua"}
+                        title={"Giờ đóng cửa"}
+                        key={"gioMoCua"}
+                        dataIndex={"gioMoCua"}
                         render={(val) => (
                             <div>{(val)} </div>
                         )}
@@ -274,9 +274,9 @@ export const ListFestivalManagement = () => {
                 />
             </div>
             <DialogConfirmCommon
-                message={"Bạn có muốn xóa lễ hội này ra khỏi hệ thống"}
+                message={"Bạn có muốn xóa điểm đến này ra khỏi hệ thống"}
                 titleCancel={"Bỏ qua"}
-                titleOk={"Xóa lễ hội"}
+                titleOk={"Xóa điểm đến"}
                 visible={isDeleteModal}
                 handleCancel={onCloseModalDelete}
                 handleOk={onDeleteLocation}

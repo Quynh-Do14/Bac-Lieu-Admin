@@ -32,10 +32,9 @@ export const ListUserManagement = () => {
 
     const onGetListUserAsync = async ({ keyWord = "", limit = pageSize, page = 1 }) => {
         const response = await api.getAllUser(
-            `${Constants.Params.searchName}=${keyWord}&${Constants.Params.limit}=${limit}&${Constants.Params.page}= ${page}`,
+            `${Constants.Params.search}=${keyWord.trim()}&${Constants.Params.limit}=${limit}&${Constants.Params.page}= ${page}`,
             setLoading
         )
-        console.log('response', response);
         setData(response.data.users);
         setPagination(response.data.pagination);
         setTotalItem(response.data.totalItems);
@@ -44,9 +43,9 @@ export const ListUserManagement = () => {
         await onGetListUserAsync({ keyWord: keyWord, limit: limit, page: page });
     };
 
-    useEffect(() => {
-        onSearch().then(_ => { });
-    }, []);
+        useEffect(() => {
+            onSearch().then(_ => { });
+        }, []);
 
     const onChangeSearchText = (e) => {
         setSearchText(e.target.value);
@@ -133,6 +132,7 @@ export const ListUserManagement = () => {
                         title={"Phân quyền"}
                         key={"role"}
                         dataIndex={"role"}
+                        width={"200px"}
                         render={(value) => {
                             return (
                                 <div>{StatusUser(value)} </div>

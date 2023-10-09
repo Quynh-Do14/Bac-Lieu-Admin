@@ -10,11 +10,6 @@ export default class Constants {
                 icon: <UserOutlined />
             },
             {
-                label: "Danh mục lớp bản đồ",
-                link: ROUTE_PATH.CATEGORY_LAYOUT_MAP,
-                icon: <DatabaseOutlined />
-            },
-            {
                 label: "Danh mục bài viết",
                 link: ROUTE_PATH.CATEGORY_NEWS,
                 icon: <DatabaseOutlined />
@@ -23,6 +18,11 @@ export default class Constants {
                 label: "Danh mục dịch vụ du lịch",
                 link: ROUTE_PATH.CATEGORY_SERVICE,
                 icon: <DatabaseOutlined />
+            },
+            {
+                label: "Quản lý điểm đến",
+                link: ROUTE_PATH.DESTINATION,
+                icon: <ScheduleOutlined />
             },
             {
                 label: "Quản lý lễ hội",
@@ -58,6 +58,7 @@ export default class Constants {
         static limit = "limit";
         static page = "page";
         static searchName = "searchName";
+        static search = "search";
         static idQuanHuyen = "idQuanHuyen";
         static idDanhMuc = "idDanhMuc";
         static parentId = "parentId"
@@ -105,8 +106,8 @@ export default class Constants {
     }
     static DefaultImage = "1"
     static CategoryConfig = class {
-        static Location = class {
-            static label = "Location";
+        static Destination = class {
+            static label = "Destination";
             static value = 1;
         }
         static Stay = class {

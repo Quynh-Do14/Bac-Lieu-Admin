@@ -29,7 +29,7 @@ export const ListTourManagement = () => {
     const navigate = useNavigate();
 
     const onGetListTourAsync = async ({ keyWord = "", limit = pageSize, page = 1 }) => {
-        const response = await api.getAllTour(`${Constants.Params.searchName}=${keyWord}&${Constants.Params.limit}=${limit}&${Constants.Params.page}= ${page}`,
+        const response = await api.getAllTour(`${Constants.Params.search}=${keyWord.trim()}&${Constants.Params.limit}=${limit}&${Constants.Params.page}= ${page}`,
             setLoading
         )
         setData(response.data.tours)

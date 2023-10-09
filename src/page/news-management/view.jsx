@@ -88,6 +88,9 @@ export const ViewNewsManagement = () => {
                 document.getElementById('file').value
             );
         }
+        else {
+            formdata.append("hinhAnh", detailLocation.hinhAnh);
+        }
         formdata.append("tieuDe", dataNews.tieuDe);
         formdata.append("status", 1);
         formdata.append("tieuDeCon", dataNews.tieuDeCon);

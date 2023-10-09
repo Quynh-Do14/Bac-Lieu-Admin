@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Col, DatePicker, Row, TimePicker } from 'antd';
 import moment from 'moment';
 import { MessageError } from '../controls/MessageError';
-import { validateFields } from '../../../utils/helper';
+import { reverseConvertTime, validateFields } from '../../../utils/helper';
 import dayjs from 'dayjs';
 
 const InputTimePickerCommon = (props) => {
@@ -36,12 +36,11 @@ const InputTimePickerCommon = (props) => {
             validateFields(isImplicitChange, attribute, !value, setValidate, validate, !value ? `Vui lòng nhập ${labelLower}` : "");
         }
     }
-    useEffect(() => {
-        if (dataAttribute) {
-            setValue(dayjs(dataAttribute) || null);
-        }
-    }, [dataAttribute]);
-
+    // useEffect(() => {
+    //     if (dataAttribute) {
+    //         setValue(dayjs(dataAttribute) || null);
+    //     }
+    // }, [dataAttribute]);
     useEffect(() => {
 
         if (submittedTime != null) {

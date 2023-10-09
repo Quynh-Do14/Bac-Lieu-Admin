@@ -6,22 +6,22 @@ import api from '../../infrastucture/api';
 import InputTextCommon from '../../infrastucture/common/components/input/input-text';
 import { Button, Col, Row } from 'antd';
 import { FullPageLoading } from '../../infrastucture/common/components/controls/loading';
-import InputTextAreaCommon from '../../infrastucture/common/components/input/input-text-area';
-import InputNumberCommon from '../../infrastucture/common/components/input/input-number';
-import InputTimePickerCommon from '../../infrastucture/common/components/input/input-timepicker';
-import UploadFileCommon from '../../infrastucture/common/components/input/upload-file';
 import InputSelectDistrictCommon from '../../infrastucture/common/components/input/select-district';
+import InputNumberCommon from '../../infrastucture/common/components/input/input-number';
+import UploadFileCommon from '../../infrastucture/common/components/input/upload-file';
+import InputTextAreaCommon from '../../infrastucture/common/components/input/input-text-area';
+import InputTimePickerCommon from '../../infrastucture/common/components/input/input-timepicker';
 import InputSelectCategoryCommon from '../../infrastucture/common/components/input/select-category';
 import { WarningMessage } from '../../infrastucture/common/components/toast/notificationToast';
-import Constants from '../../core/common/constant';
 import { ButtonCommon } from '../../infrastucture/common/components/button/button-common';
-import InputDateCommon from '../../infrastucture/common/components/input/input-date';
-import { convertDateOnly } from '../../infrastucture/utils/helper';
 
-export const AddFestivalManagement = () => {
+export const ViewDestinationlManagement = () => {
     const [validate, setValidate] = useState({});
     const [loading, setLoading] = useState(false);
+    const [detailLocation, setDetailLocation] = useState({});
     const [submittedTime, setSubmittedTime] = useState();
+    const [imageName, setImageName] = useState("");
+
     const [_data, _setData] = useState({});
     const dataLocation = _data;
 
@@ -44,22 +44,85 @@ export const AddFestivalManagement = () => {
         return allRequestOK;
     };
 
+
     const navigate = useNavigate();
+    useEffect(() => {
+        if (detailLocation) {
+            setDataLocation({
+                tenDiaDiem: detailLocation.tenDiaDiem,
+                status: 1,
+                diaChi: detailLocation.diaChi,
+                uriVideo: detailLocation.uriVideo,
+                moTa: detailLocation.moTa,
+                uriBaiViet: detailLocation.uriBaiViet,
+                idQuanHuyen: detailLocation.idQuanHuyen,
+                idDanhMuc: detailLocation.idDanhMuc,
+                idDiaDiem: detailLocation.idDiaDiem,
+                soSaoTrungBinh: detailLocation.soSaoTrungBinh,
+                emailLienHe: detailLocation.emailLienHe,
+                sdtLienHe: detailLocation.sdtLienHe,
+                gioMoCua: detailLocation.gioMoCua,
+                gioDongCua: detailLocation.gioDongCua,
+                thoiGianGhe: detailLocation.thoiGianGhe,
+                luotXem: detailLocation.luotXem,
+                giave: detailLocation.giave,
+                lat: detailLocation.lat,
+                long: detailLocation.long,
+                geom: detailLocation.geom,
+                hinhAnh: detailLocation.hinhAnh
+
+            });
+        };
+    }, [detailLocation]);
+
+    // const handleUpload = async () => {
+    //     var formdata = new FormData();
+    //     formdata.append(
+    //         "file",
+    //         document.getElementById("file").files[0],
+    //         document.getElementById('file').value
+    //     );
+    //     formdata.append('status', 1);
+    //     formdata.append('idTintuc', 1);
+    //     formdata.append('idDiaDiem', 1);
+    //     let request = await api.upload(formdata,
+    //         setLoading
+    //     )
+    //     setImageName(request.data.link)
+    // };
+
+    const param = useParams();
+    const onDetailLocationAsync = async () => {
+        const response = await api.getLocationById({
+            id: param.id,
+
+        },
+            setLoading
+        )
+        setDetailLocation(response.diaDiem);
+    };
+    useEffect(() => {
+        onDetailLocationAsync();
+    }, []);
 
     const onBack = () => {
-        navigate(ROUTE_PATH.FESTIVAL)
+        navigate(ROUTE_PATH.DESTINATION)
     };
 
-    const onCreateLocation = async () => {
+    const onUpdateLocation = async () => {
         var formdata = new FormData();
+        console.log('document.getElementById("file").files', document.getElementById("file").value);
         await setSubmittedTime(Date.now());
         if (document.getElementById("file").files.length > 0) {
             formdata.append(
                 "hinhAnh",
                 document.getElementById("file").files[0],
                 document.getElementById('file').value
-            );
-        };
+            )
+        }
+        else {
+            formdata.append("hinhAnh", detailLocation.hinhAnh);
+        }
         formdata.append("tenDiaDiem", dataLocation.tenDiaDiem);
         formdata.append("status", 1);
         formdata.append("diaChi", dataLocation.diaChi);
@@ -67,19 +130,22 @@ export const AddFestivalManagement = () => {
         formdata.append("moTa", dataLocation.moTa);
         formdata.append("uriBaiViet", dataLocation.uriBaiViet);
         formdata.append("idQuanHuyen", dataLocation.idQuanHuyen);
-        formdata.append("idDanhMuc", Constants.CategoryConfig.Festival.value);
-        formdata.append("soSaoTrungBinh", dataLocation.soSaoTrungBinh || 0);
+        formdata.append("idDanhMuc", dataLocation.idDanhMuc);
+        formdata.append("idDiaDiem", dataLocation.idDiaDiem);
+        formdata.append("soSaoTrungBinh", dataLocation.soSaoTrungBinh);
         formdata.append("emailLienHe", dataLocation.emailLienHe);
         formdata.append("sdtLienHe", dataLocation.sdtLienHe);
-        formdata.append("gioMoCua", convertDateOnly(dataLocation.gioMoCua));
-        formdata.append("gioDongCua", convertDateOnly(dataLocation.gioDongCua));
+        formdata.append("gioMoCua", dataLocation.gioMoCua);
+        formdata.append("gioDongCua", dataLocation.gioDongCua);
         formdata.append("thoiGianGhe", dataLocation.thoiGianGhe);
-        formdata.append("luotXem", dataLocation.luotXem || 0);
+        formdata.append("luotXem", dataLocation.luotXem);
+        formdata.append("giaVe", dataLocation.giaVe)
         formdata.append("lat", 1);
         formdata.append("long", 1);
         formdata.append("geom", "POINT(-122.360 47.656)");
         if (isValidData()) {
-            await api.createLocation(
+            await api.updateLocation(
+                parseInt(param.id),
                 formdata,
                 onBack,
                 setLoading
@@ -89,11 +155,12 @@ export const AddFestivalManagement = () => {
             WarningMessage("Nhập thiếu thông tin", "Vui lòng nhập đầy đủ thông tin")
         }
     };
+
     return (
-        <MainLayout breadcrumb={"Quản lý lễ hội"} title={"Thêm lễ hội"} redirect={ROUTE_PATH.FESTIVAL}>
+        <MainLayout breadcrumb={"Quản lý điểm đến"} title={"Xem chi tiết"} redirect={ROUTE_PATH.DESTINATION}>
             <div className='flex flex-col header-page'>
                 <div className='title-page pt-5 pb-7'>
-                    Thêm mới lễ hội
+                    Xem thông tin chi tiết điểm đến
                 </div>
             </div>
             <div className='main-page h-100 flex-1 auto bg-white px-8 py-4'>
@@ -101,7 +168,7 @@ export const AddFestivalManagement = () => {
                     <Row gutter={[10, 10]}>
                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                             <InputTextCommon
-                                label={"Tên lễ hội"}
+                                label={"Tên điểm đến"}
                                 attribute={"tenDiaDiem"}
                                 isRequired={true}
                                 dataAttribute={dataLocation.tenDiaDiem}
@@ -165,20 +232,6 @@ export const AddFestivalManagement = () => {
 
                             />
                         </Col>
-                        {/* <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-                            <InputSelectCategoryCommon
-                                label={"Danh mục"}
-                                attribute={"idDanhMuc"}
-                                isRequired={true}
-                                dataAttribute={dataLocation.idDanhMuc}
-                                setData={setDataLocation}
-                                disabled={false}
-                                validate={validate}
-                                setValidate={setValidate}
-                                submittedTime={submittedTime}
-
-                            />
-                        </Col> */}
                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                             <InputTextCommon
                                 label={"Email liên hệ"}
@@ -193,8 +246,8 @@ export const AddFestivalManagement = () => {
                             />
                         </Col>
                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-                            <InputDateCommon
-                                label={"Ngày bắt đầu"}
+                            <InputTextCommon
+                                label={"Giờ mở cửa"}
                                 attribute={"gioMoCua"}
                                 isRequired={true}
                                 dataAttribute={dataLocation.gioMoCua}
@@ -206,8 +259,8 @@ export const AddFestivalManagement = () => {
                             />
                         </Col>
                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-                            <InputDateCommon
-                                label={"Ngày kết thúc"}
+                            <InputTextCommon
+                                label={"Giờ đóng cửa"}
                                 attribute={"gioDongCua"}
                                 isRequired={true}
                                 dataAttribute={dataLocation.gioDongCua}
@@ -219,11 +272,24 @@ export const AddFestivalManagement = () => {
                             />
                         </Col>
                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-                            <InputTextCommon
+                            <InputNumberCommon
                                 label={"Dữ liệu ảnh"}
                                 attribute={"thoiGianGhe"}
                                 isRequired={true}
                                 dataAttribute={dataLocation.thoiGianGhe}
+                                setData={setDataLocation}
+                                disabled={false}
+                                validate={validate}
+                                setValidate={setValidate}
+                                submittedTime={submittedTime}
+                            />
+                        </Col>
+                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
+                            <InputTextCommon
+                                label={"Giá vé"}
+                                attribute={"giave"}
+                                isRequired={true}
+                                dataAttribute={dataLocation.giave}
                                 setData={setDataLocation}
                                 disabled={false}
                                 validate={validate}
@@ -272,7 +338,7 @@ export const AddFestivalManagement = () => {
                         <ButtonCommon onClick={onBack} classColor="grey">Quay lại</ButtonCommon>
                     </Col>
                     <Col className='mx-1'>
-                        <ButtonCommon onClick={onCreateLocation} classColor="blue">Thêm mới</ButtonCommon>
+                        <ButtonCommon onClick={onUpdateLocation} classColor="blue">Thêm mới</ButtonCommon>
                     </Col>
                 </Row>
             </div >

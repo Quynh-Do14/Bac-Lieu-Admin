@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Col, DatePicker, Row } from 'antd';
 import moment from 'moment';
 import { MessageError } from '../controls/MessageError';
-import { validateFields } from '../../../utils/helper';
+import { reverseConvertDate, validateFields } from '../../../utils/helper';
 import dayjs from 'dayjs';
 
 const InputDateCommon = (props) => {
@@ -38,37 +38,42 @@ const InputDateCommon = (props) => {
     }
     useEffect(() => {
         if (dataAttribute) {
-            setValue(dayjs(dataAttribute) || null);
+            setValue(dayjs(reverseConvertDate(dataAttribute)) || null);
         }
     }, [dataAttribute]);
 
+    // useEffect(() => {
+    //     setValidate(reverseConvertDate(dataAttribute))
+    // }, [dataAttribute])
     useEffect(() => {
 
         if (submittedTime != null) {
             onBlur(true);
         }
     }, [submittedTime]);
+    console.log('reverseConvertDate', reverseConvertDate(dataAttribute));
+    console.log('vadataAttributelie', (dataAttribute));
 
     return (
         <Row className='mb-4 input-common'>
-            <Col xs={24} sm={10} lg={8} xl={6} className='title'>
+            <Col xs={24} sm={10} lg={10} xl={6} className='title'>
                 <span>
                     <span className='label'>{label}</span>
                     <span className='ml-1 is-required'>{isRequired ? "*" : ""} </span>
                 </span>
             </Col>
-            <Col xs={24} sm={14} lg={16} xl={18}>
+            <Col xs={24} sm={14} lg={14} xl={18}>
                 <DatePicker
                     allowClear={false}
                     size="middle"
                     className='w-100 input-date-common'
-                    value={value}
+                    value={(value)}
                     placeholder={label}
                     // onChange={(values) => setValue(values)}
                     onChange={onChange}
                     disabledDate={disabledDate}
                     disabled={disabled}
-                    format="DD/MM/YYYY"
+                    format="YYYY/MM/DD"
                     onBlur={() => onBlur(false)}
                 />
 

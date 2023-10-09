@@ -40,14 +40,14 @@ export const validateFields = (isImplicitChange = false, key, isCheck, setError,
 export const convertDate = (date) => {
     if (date) {
         let dateFormat = new Date(date);
-        return moment(dateFormat).format("DD/MM/YYYY hh:mm:ss");
+        return moment(dateFormat).format("YYYY/MM/DD hh:mm:ss");
     } return null;
 
 };
 export const convertDateOnly = (date) => {
     if (date) {
         let dateFormat = new Date(date);
-        return moment(dateFormat).format("DD/MM/YYYY");
+        return moment(dateFormat).format("YYYY/MM/DD");
     } return null;
 };
 
@@ -57,3 +57,20 @@ export const convertTimeOnly = (date) => {
         return moment(dateFormat).format("hh:mm");
     } return null;
 };
+
+export const reverseConvertDate = (inputDateString) => {
+    const inputDate = new Date(inputDateString);
+
+    // Format the date as "Thu, 26 Oct 2023 13:05:32 GMT"
+    const formattedDate = inputDate.toUTCString();
+    return formattedDate
+}
+
+export const reverseConvertTime = (inputTime) => {
+    // Combine the date and time to create a new Date object
+    const dateTimeString = `2023-09-24T${inputTime}:00.000Z`;
+    const formattedDateTime = new Date(dateTimeString).toISOString();
+
+    console.log(formattedDateTime)
+    return formattedDateTime
+}

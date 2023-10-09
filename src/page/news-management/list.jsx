@@ -30,7 +30,7 @@ export const ListNewsManagement = () => {
 
     const onGetListNewsAsync = async ({ keyWord = "", limit = pageSize, page = 1 }) => {
         const response = await api.getAllNews(
-            `${Constants.Params.searchName}=${keyWord}&${Constants.Params.limit}=${limit}&${Constants.Params.page}=${page}`,
+            `${Constants.Params.search}=${keyWord.trim()}&${Constants.Params.limit}=${limit}&${Constants.Params.page}=${page}`,
             setLoading
         )
         setData(response.data.tinTucs);

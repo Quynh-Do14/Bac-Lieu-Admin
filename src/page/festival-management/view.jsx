@@ -14,6 +14,8 @@ import InputTimePickerCommon from '../../infrastucture/common/components/input/i
 import InputSelectCategoryCommon from '../../infrastucture/common/components/input/select-category';
 import { WarningMessage } from '../../infrastucture/common/components/toast/notificationToast';
 import { ButtonCommon } from '../../infrastucture/common/components/button/button-common';
+import InputDateCommon from '../../infrastucture/common/components/input/input-date';
+import { convertDateOnly } from '../../infrastucture/utils/helper';
 
 export const ViewFestivalManagement = () => {
     const [validate, setValidate] = useState({});
@@ -65,6 +67,7 @@ export const ViewFestivalManagement = () => {
                 gioDongCua: detailLocation.gioDongCua,
                 thoiGianGhe: detailLocation.thoiGianGhe,
                 luotXem: detailLocation.luotXem,
+                giaVe: detailLocation.giaVe,
                 lat: detailLocation.lat,
                 long: detailLocation.long,
                 geom: detailLocation.geom,
@@ -119,6 +122,9 @@ export const ViewFestivalManagement = () => {
                 document.getElementById('file').value
             );
         }
+        else {
+            formdata.append("hinhAnh", detailLocation.hinhAnh);
+        }
         formdata.append("tenDiaDiem", dataLocation.tenDiaDiem);
         formdata.append("status", 1);
         formdata.append("diaChi", dataLocation.diaChi);
@@ -131,10 +137,11 @@ export const ViewFestivalManagement = () => {
         formdata.append("soSaoTrungBinh", dataLocation.soSaoTrungBinh);
         formdata.append("emailLienHe", dataLocation.emailLienHe);
         formdata.append("sdtLienHe", dataLocation.sdtLienHe);
-        formdata.append("gioMoCua", dataLocation.gioMoCua);
-        formdata.append("gioDongCua", dataLocation.gioDongCua);
+        formdata.append("gioMoCua", convertDateOnly(dataLocation.gioMoCua));
+        formdata.append("gioDongCua", convertDateOnly(dataLocation.gioDongCua));
         formdata.append("thoiGianGhe", dataLocation.thoiGianGhe);
         formdata.append("luotXem", dataLocation.luotXem);
+        formdata.append("giaVe", dataLocation.giaVe)
         formdata.append("lat", 1);
         formdata.append("long", 1);
         formdata.append("geom", "POINT(-122.360 47.656)");
@@ -241,8 +248,8 @@ export const ViewFestivalManagement = () => {
                             />
                         </Col>
                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-                            <InputTimePickerCommon
-                                label={"Giờ mở cửa"}
+                            <InputDateCommon
+                                label={"Ngày bắt đầu"}
                                 attribute={"gioMoCua"}
                                 isRequired={true}
                                 dataAttribute={dataLocation.gioMoCua}
@@ -254,8 +261,8 @@ export const ViewFestivalManagement = () => {
                             />
                         </Col>
                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-                            <InputTimePickerCommon
-                                label={"Giờ đóng cửa"}
+                            <InputDateCommon
+                                label={"Ngày kết thúc"}
                                 attribute={"gioDongCua"}
                                 isRequired={true}
                                 dataAttribute={dataLocation.gioDongCua}
@@ -285,6 +292,19 @@ export const ViewFestivalManagement = () => {
                                 attribute={"sdtLienHe"}
                                 isRequired={true}
                                 dataAttribute={dataLocation.sdtLienHe}
+                                setData={setDataLocation}
+                                disabled={false}
+                                validate={validate}
+                                setValidate={setValidate}
+                                submittedTime={submittedTime}
+                            />
+                        </Col>
+                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
+                            <InputTextCommon
+                                label={"Giá Vé"}
+                                attribute={"giaVe"}
+                                isRequired={true}
+                                dataAttribute={dataLocation.giaVe}
                                 setData={setDataLocation}
                                 disabled={false}
                                 validate={validate}

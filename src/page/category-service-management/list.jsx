@@ -28,7 +28,7 @@ export const ListCategoryServiceManagement = () => {
     const navigate = useNavigate();
 
     const onGetListCategoryAsync = async ({ keyWord = "", limit = pageSize, page = 1 }) => {
-        const response = await api.getAllCategoryByParentId(`${Constants.Params.parentId}=${Constants.CategoryConfig.Tour.value}&${Constants.Params.searchName}=${keyWord}&${Constants.Params.limit}=${limit}&${Constants.Params.page}= ${page}`,
+        const response = await api.getAllCategoryByParentId(`${Constants.Params.parentId}=${Constants.CategoryConfig.Tour.value}&${Constants.Params.search}=${keyWord.trim()}&${Constants.Params.limit}=${limit}&${Constants.Params.page}= ${page}`,
             setLoading
         )
         setData(response.data.danhMucParentId);

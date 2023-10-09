@@ -119,6 +119,9 @@ export const ViewSpecialtyManagement = () => {
                 document.getElementById('file').value
             );
         }
+        else {
+            formdata.append("hinhAnh", detailLocation.hinhAnh);
+        }
         formdata.append("tenDiaDiem", dataLocation.tenDiaDiem);
         formdata.append("status", 1);
         formdata.append("diaChi", dataLocation.diaChi);

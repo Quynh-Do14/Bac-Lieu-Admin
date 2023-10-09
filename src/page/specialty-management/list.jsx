@@ -47,7 +47,7 @@ export const ListSpecialtyManagement = () => {
         const condition = await checkCondition()
         if (condition) {
             const response = await api.getAllLocation(
-                `${Constants.Params.searchName.trim()}=${keyWord}&${Constants.Params.limit}=${limit}&${Constants.Params.page}=${page}&${Constants.Params.idQuanHuyen}=${idQuanHuyen}&${Constants.Params.idDanhMuc}=${idDanhMuc}`,
+                `${Constants.Params.search}=${keyWord.trim()}&${Constants.Params.limit}=${limit}&${Constants.Params.page}=${page}&${Constants.Params.idQuanHuyen}=${idQuanHuyen}&${Constants.Params.idDanhMuc}=${idDanhMuc}`,
                 setLoading
             )
             setData(response.data.diaDiems);

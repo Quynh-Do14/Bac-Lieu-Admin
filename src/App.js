@@ -31,7 +31,9 @@ import { AddCategoryNewsManagement } from './page/category-news-management/add';
 import { ListCategoryServiceManagement } from './page/category-service-management/list';
 import { ViewCategoryServiceManagement } from './page/category-service-management/view';
 import { AddCategoryServiceManagement } from './page/category-service-management/add';
-
+import { ListDestinationManagement } from './page/destination-management/list';
+import { AddDestinationManagement } from './page/destination-management/add';
+import { ViewDestinationlManagement } from './page/destination-management/view'
 const RouteRoot = () => {
   return (
     <BrowserRouter>
@@ -54,6 +56,10 @@ const RouteRoot = () => {
         <Route path={ROUTE_PATH.DISTRICT} element={<PrivateRoute component={ListDistrictManagement} />} />
         <Route path={ROUTE_PATH.VIEW_DISTRICT} element={<PrivateRoute component={ViewDistrictManagement} />} />
         <Route path={ROUTE_PATH.ADD_DISTRICT} element={<PrivateRoute component={AddDistrictManagement} />} />
+
+        <Route path={ROUTE_PATH.DESTINATION} element={<PrivateRoute component={ListDestinationManagement} />} />
+        <Route path={ROUTE_PATH.VIEW_DESTINATION} element={<PrivateRoute component={ViewDestinationlManagement} />} />
+        <Route path={ROUTE_PATH.ADD_DESTINATION} element={<PrivateRoute component={AddDestinationManagement} />} />
 
         <Route path={ROUTE_PATH.FESTIVAL} element={<PrivateRoute component={ListFestivalManagement} />} />
         <Route path={ROUTE_PATH.VIEW_FESTIVAL} element={<PrivateRoute component={ViewFestivalManagement} />} />

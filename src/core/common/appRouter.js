@@ -20,6 +20,10 @@ export const ROUTE_PATH = {
     VIEW_CATEGORY_SERVICE: `${PREFIX}/category_service/view/:id`,
     ADD_CATEGORY_SERVICE: `${PREFIX}/category_service/add`,
 
+    DESTINATION: `${PREFIX}/destination`,
+    VIEW_DESTINATION: `${PREFIX}/destination/view/:id`,
+    ADD_DESTINATION: `${PREFIX}/destination/add`,
+
     SPECIALTY: `${PREFIX}/specialty`,
     VIEW_SPECIALTY: `${PREFIX}/specialty/view/:id`,
     ADD_SPECIALTY: `${PREFIX}/specialty/add`,
