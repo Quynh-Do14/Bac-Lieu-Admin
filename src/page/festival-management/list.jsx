@@ -201,6 +201,17 @@ export const ListFestivalManagement = () => {
                     className='table-common'
                 >
                     <Column
+                        title={"STT"}
+                        dataIndex="stt"
+                        key="stt"
+                        width={"5%"}
+                        render={(val, record, index) => (
+                            <div style={{ textAlign: "center" }}>
+                                {index + 1 + pageSize * (page - 1)}
+                            </div>
+                        )}
+                    />
+                    <Column
                         title={"Tên lễ hội"}
                         key={"tenDiaDiem"}
                         dataIndex={"tenDiaDiem"}

@@ -121,6 +121,17 @@ export const ListNewsManagement = () => {
                     className='table-common'
                 >
                     <Column
+                        title={"STT"}
+                        dataIndex="stt"
+                        key="stt"
+                        width={"5%"}
+                        render={(val, record, index) => (
+                            <div style={{ textAlign: "center" }}>
+                                {index + 1 + pageSize * (page - 1)}
+                            </div>
+                        )}
+                    />
+                    <Column
                         title={"Tiêu đề"}
                         key={"tieuDe"}
                         dataIndex={"tieuDe"}

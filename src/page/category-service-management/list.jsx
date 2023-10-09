@@ -121,10 +121,13 @@ export const ListCategoryServiceManagement = () => {
                 >
                     <Column
                         title={"STT"}
-                        key={"stt"}
-                        dataIndex={"stt"}
-                        render={(value, record, index) => (
-                            <div>{index + 1} </div>
+                        dataIndex="stt"
+                        key="stt"
+                        width={"5%"}
+                        render={(val, record, index) => (
+                            <div style={{ textAlign: "center" }}>
+                                {index + 1 + pageSize * (page - 1)}
+                            </div>
                         )}
                     />
                     <Column

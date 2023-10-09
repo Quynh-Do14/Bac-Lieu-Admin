@@ -122,6 +122,17 @@ export const ListTourManagement = () => {
                         pagination={false}
                     >
                         <Column
+                            title={"STT"}
+                            dataIndex="stt"
+                            key="stt"
+                            width={"5%"}
+                            render={(val, record, index) => (
+                                <div style={{ textAlign: "center" }}>
+                                    {index + 1 + pageSize * (page - 1)}
+                                </div>
+                            )}
+                        />
+                        <Column
                             title={"Tên lịch trình"}
                             key={"tenTour"}
                             dataIndex={"tenTour"}

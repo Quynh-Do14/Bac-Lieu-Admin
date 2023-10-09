@@ -43,9 +43,9 @@ export const ListUserManagement = () => {
         await onGetListUserAsync({ keyWord: keyWord, limit: limit, page: page });
     };
 
-        useEffect(() => {
-            onSearch().then(_ => { });
-        }, []);
+    useEffect(() => {
+        onSearch().then(_ => { });
+    }, []);
 
     const onChangeSearchText = (e) => {
         setSearchText(e.target.value);
@@ -123,6 +123,17 @@ export const ListUserManagement = () => {
                     dataSource={data}
                     pagination={false}
                 >
+                    <Column
+                        title={"STT"}
+                        dataIndex="stt"
+                        key="stt"
+                        width={"5%"}
+                        render={(val, record, index) => (
+                            <div style={{ textAlign: "center" }}>
+                                {index + 1 + pageSize * (page - 1)}
+                            </div>
+                        )}
+                    />
                     <Column
                         title={"Tên người dùng"}
                         key={"userName"}
