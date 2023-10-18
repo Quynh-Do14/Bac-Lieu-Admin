@@ -15,9 +15,10 @@ const InputSelectCategoryCommon = (props) => {
         validate,
         submittedTime,
         isRequired,
-        label
+        label,
+        dataCategory
     } = props;
-    const dataCategory = useRecoilValue(CategoryState);
+    // const dataCategory = useRecoilValue(CategoryState);
     const [value, setValue] = useState("");
 
     const onChange = async (val) => {
