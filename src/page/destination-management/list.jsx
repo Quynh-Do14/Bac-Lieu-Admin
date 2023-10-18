@@ -236,8 +236,8 @@ export const ListDestinationManagement = () => {
                     />
                     <Column
                         title={"Giờ mở cửa"}
-                        key={"gioDongCua"}
-                        dataIndex={"gioDongCua"}
+                        key={"gioMoCua"}
+                        dataIndex={"gioMoCua"}
                         width={"200px"}
                         render={(val) => (
                             <div>{(val)} </div>
@@ -245,8 +245,8 @@ export const ListDestinationManagement = () => {
                     />
                     <Column
                         title={"Giờ đóng cửa"}
-                        key={"gioMoCua"}
-                        dataIndex={"gioMoCua"}
+                        key={"gioDongCua"}
+                        dataIndex={"gioDongCua"}
                         width={"200px"}
                         render={(val) => (
                             <div>{(val)} </div>

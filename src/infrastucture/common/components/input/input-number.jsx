@@ -16,6 +16,7 @@ const InputNumberCommon = (props) => {
         isRequired,
         dataAttribute,
         disabled = false,
+        max = null
     } = props;
     const [value, setValue] = useState(null);
 
@@ -66,7 +67,7 @@ const InputNumberCommon = (props) => {
             <Col xs={24} sm={14} lg={14} xl={18}>
                 <InputNumber
                     min={0}
-                    max={null}
+                    max={max}
                     className='w-100'
                     disabled={disabled}
                     formatter={formatterNumber}

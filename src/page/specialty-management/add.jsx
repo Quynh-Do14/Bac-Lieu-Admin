@@ -73,9 +73,6 @@ export const AddSpecialtyManagement = () => {
         formdata.append("gioDongCua", dataLocation.gioDongCua);
         formdata.append("thoiGianGhe", dataLocation.thoiGianGhe);
         formdata.append("luotXem", dataLocation.luotXem || 0);
-        formdata.append("lat", 1);
-        formdata.append("long", 1);
-        formdata.append("geom", "POINT(-122.360 47.656)");
         if (isValidData()) {
             await api.createLocation(
                 formdata,
@@ -243,7 +240,7 @@ export const AddSpecialtyManagement = () => {
                                 submittedTime={submittedTime}
                             />
                         </Col>
-                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
+                      <Col xs={24} sm={24} md={24} lg={24} xl={24}>
                             <InputTextAreaCommon
                                 label={"Mô tả"}
                                 attribute={"moTa"}
@@ -259,6 +256,7 @@ export const AddSpecialtyManagement = () => {
                         <Col xs={24} sm={24} md={24} lg={24} xl={24}>
                             <UploadFileCommon
                                 label={'Hình ảnh'}
+                                dataAttribute={dataLocation.hinhAnh}
                             // handleUpload={handleUpload}
                             />
                         </Col>

@@ -58,13 +58,13 @@ const InputTextAreaCommon = (props) => {
     return (
         <div>
             <Row className='mb-4 input-common'>
-                <Col xs={24} sm={10} lg={10} xl={6} className='title'>
+                <Col xs={24} sm={10} lg={5} xl={3} className='title'>
                     <span >
                         <span className='label'>{label}</span>
                         <span className='ml-1 is-required'>{isRequired ? "*" : ""} </span>
                     </span>
                 </Col>
-                <Col xs={24} sm={14} lg={14} xl={18}>
+                <Col xs={24} sm={14} lg={19} xl={21}>
                     <TextArea
                         size={size ? size : "middle"}
                         value={value ? value : ""}

@@ -48,8 +48,8 @@ export const AddUserManagement = () => {
         await setSubmittedTime(Date.now());
         if (isValidData()) {
             await api.createUser({
-                userName: dataUser.userName,
-                password: "123456aA@",
+                // userName: dataUser.userName,
+                password: dataUser.password,
                 status: 1,
                 role: dataUser.role,
                 email: dataUser.email,
@@ -76,12 +76,26 @@ export const AddUserManagement = () => {
             <div className='main-page h-100 flex-1 auto bg-white px-8 py-4'>
                 <div className='bg-white'>
                     <Row gutter={[20, 20]}>
+
                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                             <InputTextCommon
-                                label={"Tên người dùng"}
-                                attribute={"userName"}
+                                label={"Email"}
+                                attribute={"email"}
                                 isRequired={true}
-                                dataAttribute={dataUser.userName}
+                                dataAttribute={dataUser.email}
+                                setData={setDataUser}
+                                disabled={false}
+                                validate={validate}
+                                setValidate={setValidate}
+                                submittedTime={submittedTime}
+                            />
+                        </Col>
+                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
+                            <InputTextCommon
+                                label={"Mật khẩu"}
+                                attribute={"password"}
+                                isRequired={true}
+                                dataAttribute={dataUser.password}
                                 setData={setDataUser}
                                 disabled={false}
                                 validate={validate}
@@ -101,19 +115,6 @@ export const AddUserManagement = () => {
                                 setValidate={setValidate}
                                 submittedTime={submittedTime}
                                 listDataOfItem={Constants.StatusUser.List}
-                            />
-                        </Col>
-                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-                            <InputTextCommon
-                                label={"Email"}
-                                attribute={"email"}
-                                isRequired={true}
-                                dataAttribute={dataUser.email}
-                                setData={setDataUser}
-                                disabled={false}
-                                validate={validate}
-                                setValidate={setValidate}
-                                submittedTime={submittedTime}
                             />
                         </Col>
                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>

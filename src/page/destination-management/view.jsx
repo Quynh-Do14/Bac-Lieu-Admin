@@ -111,7 +111,6 @@ export const ViewDestinationlManagement = () => {
 
     const onUpdateLocation = async () => {
         var formdata = new FormData();
-        console.log('document.getElementById("file").files', document.getElementById("file").value);
         await setSubmittedTime(Date.now());
         if (document.getElementById("file").files.length > 0) {
             formdata.append(
@@ -140,9 +139,6 @@ export const ViewDestinationlManagement = () => {
         formdata.append("thoiGianGhe", dataLocation.thoiGianGhe);
         formdata.append("luotXem", dataLocation.luotXem);
         formdata.append("giaVe", dataLocation.giaVe)
-        formdata.append("lat", 1);
-        formdata.append("long", 1);
-        formdata.append("geom", "POINT(-122.360 47.656)");
         if (isValidData()) {
             await api.updateLocation(
                 parseInt(param.id),
@@ -272,7 +268,7 @@ export const ViewDestinationlManagement = () => {
                             />
                         </Col>
                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-                            <InputNumberCommon
+                            <InputTextCommon
                                 label={"Dữ liệu ảnh"}
                                 attribute={"thoiGianGhe"}
                                 isRequired={true}
@@ -310,7 +306,7 @@ export const ViewDestinationlManagement = () => {
                                 submittedTime={submittedTime}
                             />
                         </Col>
-                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
+                        <Col xs={24} sm={24} md={24} lg={24} xl={24}>
                             <InputTextAreaCommon
                                 label={"Mô tả"}
                                 attribute={"moTa"}
@@ -326,6 +322,7 @@ export const ViewDestinationlManagement = () => {
                         <Col xs={24} sm={24} md={24} lg={24} xl={24}>
                             <UploadFileCommon
                                 label={'Hình ảnh'}
+                                dataAttribute={dataLocation.hinhAnh}
                             // handleUpload={handleUpload}
                             />
                         </Col>

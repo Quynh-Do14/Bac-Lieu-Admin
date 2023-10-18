@@ -73,9 +73,6 @@ export const AddDestinationManagement = () => {
         formdata.append("thoiGianGhe", dataLocation.thoiGianGhe);
         formdata.append("luotXem", dataLocation.luotXem || 0);
         formdata.append("giaVe", dataLocation.giaVe)
-        formdata.append("lat", 1);
-        formdata.append("long", 1);
-        formdata.append("geom", "POINT(-122.360 47.656)");
         if (isValidData()) {
             await api.createLocation(
                 formdata,
@@ -256,7 +253,7 @@ export const AddDestinationManagement = () => {
                                 submittedTime={submittedTime}
                             />
                         </Col>
-                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
+                        <Col xs={24} sm={24} md={24} lg={24} xl={24}>
                             <InputTextAreaCommon
                                 label={"Mô tả"}
                                 attribute={"moTa"}

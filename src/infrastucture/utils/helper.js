@@ -64,6 +64,11 @@ export const reverseConvertDate = (inputDateString) => {
     // Format the date as "Thu, 26 Oct 2023 13:05:32 GMT"
     const formattedDate = inputDate.toUTCString();
     return formattedDate
+    
+    // const date = new Date(inputDateString);
+    // const time = date.toISOString().substr(11, 12);
+    // const isoDateTime = inputDateString + 'T' + time + 'Z';
+    // return isoDateTime
 }
 
 export const reverseConvertTime = (inputTime) => {

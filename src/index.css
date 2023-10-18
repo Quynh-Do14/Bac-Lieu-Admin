@@ -12,7 +12,15 @@ code {
     monospace;
 }
 
-.input-common input.ant-input.css-dev-only-do-not-override-pr0fja {
+.input-common input.ant-input.css-dev-only-do-not-override-pr0fja,
+.select-common .ant-select-selector {
+  border-radius: 0px;
+  border: 0.7px solid #BAB8B8;
+  background: #FFF;
+}
+
+.input-common textarea.ant-input.css-dev-only-do-not-override-pr0fja {
+  height: 120px;
   border-radius: 0px;
   border: 0.7px solid #BAB8B8;
   background: #FFF;
@@ -20,6 +28,7 @@ code {
 
 .input-common input.ant-input.css-dev-only-do-not-override-pr0fja,
 .select-common span.ant-select-selection-item,
+.select-common .ant-select-selector,
 .select-search .ant-select-selector,
 .select-search .ant-select-selector span.ant-select-selection-item,
 .input-common input.ant-input-number-input {
@@ -29,8 +38,17 @@ code {
   font-style: normal;
   font-weight: 600;
   line-height: 24px;
+  height: 40px !important;
   /* 160% */
   letter-spacing: 0.15px;
+}
+
+.select-common span.ant-select-selection-item {
+  line-height: 40px !important;
+}
+
+.input-common input.ant-input.ant-input-disabled.css-dev-only-do-not-override-pr0fja {
+  background-color: rgba(0, 0, 0, 0.09) !important;
 }
 
 .button-common button.ant-btn.css-dev-only-do-not-override-pr0fja.ant-btn-default.gradient {

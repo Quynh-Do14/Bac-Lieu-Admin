@@ -154,7 +154,7 @@ export const ViewNewsManagement = () => {
                                 submittedTime={submittedTime}
                             />
                         </Col>
-                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
+                      <Col xs={24} sm={24} md={24} lg={24} xl={24}>
                             <InputTextAreaCommon
                                 label={"Mô tả ngắn"}
                                 attribute={"moTaNgan"}
@@ -167,7 +167,7 @@ export const ViewNewsManagement = () => {
                                 submittedTime={submittedTime}
                             />
                         </Col>
-                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
+                      <Col xs={24} sm={24} md={24} lg={24} xl={24}>
                             <InputTextAreaCommon
                                 label={"Chi tiết"}
                                 attribute={"chiTiet"}

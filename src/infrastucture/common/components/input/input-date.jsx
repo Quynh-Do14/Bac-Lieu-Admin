@@ -42,9 +42,6 @@ const InputDateCommon = (props) => {
         }
     }, [dataAttribute]);
 
-    // useEffect(() => {
-    //     setValidate(reverseConvertDate(dataAttribute))
-    // }, [dataAttribute])
     useEffect(() => {
 
         if (submittedTime != null) {
@@ -52,7 +49,6 @@ const InputDateCommon = (props) => {
         }
     }, [submittedTime]);
     console.log('reverseConvertDate', reverseConvertDate(dataAttribute));
-    console.log('vadataAttributelie', (dataAttribute));
 
     return (
         <Row className='mb-4 input-common'>

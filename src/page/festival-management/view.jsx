@@ -142,9 +142,6 @@ export const ViewFestivalManagement = () => {
         formdata.append("thoiGianGhe", dataLocation.thoiGianGhe);
         formdata.append("luotXem", dataLocation.luotXem);
         formdata.append("giaVe", dataLocation.giaVe)
-        formdata.append("lat", 1);
-        formdata.append("long", 1);
-        formdata.append("geom", "POINT(-122.360 47.656)");
         if (isValidData()) {
             await api.updateLocation(
                 parseInt(param.id),
@@ -312,7 +309,7 @@ export const ViewFestivalManagement = () => {
                                 submittedTime={submittedTime}
                             />
                         </Col>
-                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
+                      <Col xs={24} sm={24} md={24} lg={24} xl={24}>
                             <InputTextAreaCommon
                                 label={"Mô tả"}
                                 attribute={"moTa"}

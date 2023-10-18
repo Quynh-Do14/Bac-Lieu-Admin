@@ -44,7 +44,7 @@ export const ViewUserManagement = () => {
     useEffect(() => {
         if (detailUser) {
             setDataUser({
-                userName: detailUser.userName,
+                // userName: detailUser.userName,
                 role: detailUser.role,
                 email: detailUser.email,
                 firstName: detailUser.firstName,
@@ -77,7 +77,7 @@ export const ViewUserManagement = () => {
         if (isValidData()) {
             await api.updateUser({
                 id: parseInt(param.id),
-                userName: dataUser.userName,
+                // userName: dataUser.userName,
                 role: dataUser.role,
                 email: dataUser.email,
                 firstName: dataUser.firstName,
@@ -103,8 +103,8 @@ export const ViewUserManagement = () => {
             <div className='main-page h-100 flex-1 auto bg-white px-8 py-4'>
                 <div className='bg-white'>
                     <Row gutter={[20, 20]}>
-                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-                            <InputTextCommon
+                        {/*<Col xs={24} sm={24} md={24} lg={12} xl={12}>
+                             <InputTextCommon
                                 label={"Tên người dùng"}
                                 attribute={"userName"}
                                 isRequired={true}
@@ -115,7 +115,7 @@ export const ViewUserManagement = () => {
                                 setValidate={setValidate}
                                 submittedTime={submittedTime}
                             />
-                        </Col>
+                        </Col> */}
                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                             <InputSelectCommon
                                 label={"Phân quyền"}
@@ -137,7 +137,7 @@ export const ViewUserManagement = () => {
                                 isRequired={true}
                                 dataAttribute={dataUser.email}
                                 setData={setDataUser}
-                                disabled={false}
+                                disabled={true}
                                 validate={validate}
                                 setValidate={setValidate}
                                 submittedTime={submittedTime}

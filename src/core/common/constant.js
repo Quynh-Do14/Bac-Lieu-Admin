@@ -40,6 +40,11 @@ export default class Constants {
                 icon: <ContainerOutlined />
             },
             {
+                label: "Quản lý đánh giá",
+                link: ROUTE_PATH.EVALUATE,
+                icon: <EnvironmentOutlined />
+            },
+            {
                 label: "Quản lý lịch trình",
                 link: ROUTE_PATH.TOUR,
                 icon: <EnvironmentOutlined />

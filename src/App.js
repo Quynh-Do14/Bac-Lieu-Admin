@@ -34,6 +34,8 @@ import { AddCategoryServiceManagement } from './page/category-service-management
 import { ListDestinationManagement } from './page/destination-management/list';
 import { AddDestinationManagement } from './page/destination-management/add';
 import { ViewDestinationlManagement } from './page/destination-management/view'
+import { ViewEvaluateManagement } from './page/evaluate-management/view';
+import { ListEvaluateManagement } from './page/evaluate-management/list';
 const RouteRoot = () => {
   return (
     <BrowserRouter>
@@ -77,6 +79,9 @@ const RouteRoot = () => {
         <Route path={ROUTE_PATH.TOUR} element={<PrivateRoute component={ListTourManagement} />} />
         <Route path={ROUTE_PATH.VIEW_TOUR} element={<PrivateRoute component={ViewTourManagement} />} />
         <Route path={ROUTE_PATH.ADD_TOUR} element={<PrivateRoute component={AddTourManagement} />} />
+
+        <Route path={ROUTE_PATH.EVALUATE} element={<PrivateRoute component={ListEvaluateManagement} />} />
+        <Route path={ROUTE_PATH.VIEW_EVALUATE} element={<PrivateRoute component={ViewEvaluateManagement} />} />
       </Routes>
     </BrowserRouter>
   )
