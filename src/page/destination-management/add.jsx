@@ -77,8 +77,8 @@ export const AddDestinationManagement = () => {
     formdata.append("idQuanHuyen", dataLocation.idQuanHuyen);
     formdata.append("idDanhMuc", dataLocation.idDanhMuc);
     formdata.append("soSaoTrungBinh", dataLocation.soSaoTrungBinh || 0);
-    // formdata.append("emailLienHe", dataLocation.emailLienHe);
-    // formdata.append("sdtLienHe", dataLocation.sdtLienHe);
+    formdata.append("emailLienHe", "");
+    formdata.append("sdtLienHe", "");
     formdata.append("gioMoCua", "00:00");
     formdata.append("gioDongCua", "23:59");
     formdata.append(
