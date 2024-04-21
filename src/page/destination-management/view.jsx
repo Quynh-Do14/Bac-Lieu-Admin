@@ -132,8 +132,8 @@ export const ViewDestinationlManagement = () => {
         formdata.append("idDanhMuc", dataLocation.idDanhMuc);
         formdata.append("idDiaDiem", dataLocation.idDiaDiem);
         formdata.append("soSaoTrungBinh", dataLocation.soSaoTrungBinh);
-        formdata.append("emailLienHe", dataLocation.emailLienHe);
-        formdata.append("sdtLienHe", dataLocation.sdtLienHe);
+        formdata.append("emailLienHe", "");
+        formdata.append("sdtLienHe", "");
         formdata.append("gioMoCua", dataLocation.gioMoCua);
         formdata.append("gioDongCua", dataLocation.gioDongCua);
         formdata.append("thoiGianGhe", dataLocation.thoiGianGhe);
@@ -228,7 +228,7 @@ export const ViewDestinationlManagement = () => {
 
                             />
                         </Col>
-                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
+                        {/* <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                             <InputTextCommon
                                 label={"Email liên hệ"}
                                 attribute={"emailLienHe"}
@@ -240,7 +240,7 @@ export const ViewDestinationlManagement = () => {
                                 setValidate={setValidate}
                                 submittedTime={submittedTime}
                             />
-                        </Col>
+                        </Col> */}
                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                             <InputTextCommon
                                 label={"Giờ mở cửa"}
@@ -293,7 +293,7 @@ export const ViewDestinationlManagement = () => {
                                 submittedTime={submittedTime}
                             />
                         </Col>
-                        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
+                        {/* <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                             <InputTextCommon
                                 label={"SĐT liên hệ"}
                                 attribute={"sdtLienHe"}
@@ -305,7 +305,7 @@ export const ViewDestinationlManagement = () => {
                                 setValidate={setValidate}
                                 submittedTime={submittedTime}
                             />
-                        </Col>
+                        </Col> */}
                         <Col xs={24} sm={24} md={24} lg={24} xl={24}>
                             <InputTextAreaCommon
                                 label={"Mô tả"}
