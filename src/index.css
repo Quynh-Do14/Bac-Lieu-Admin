@@ -12,21 +12,21 @@ code {
     monospace;
 }
 
-.input-common input.ant-input.css-dev-only-do-not-override-pr0fja,
+.input-common input.ant-input,
 .select-common .ant-select-selector {
   border-radius: 0px;
   border: 0.7px solid #BAB8B8;
   background: #FFF;
 }
 
-.input-common textarea.ant-input.css-dev-only-do-not-override-pr0fja {
+.input-common textarea.ant-input {
   height: 120px;
   border-radius: 0px;
   border: 0.7px solid #BAB8B8;
   background: #FFF;
 }
 
-.input-common input.ant-input.css-dev-only-do-not-override-pr0fja,
+.input-common input.ant-input,
 .select-common span.ant-select-selection-item,
 .select-common .ant-select-selector,
 .select-search .ant-select-selector,
@@ -47,11 +47,11 @@ code {
   line-height: 40px !important;
 }
 
-.input-common input.ant-input.ant-input-disabled.css-dev-only-do-not-override-pr0fja {
+.input-common input.ant-input.ant-input-disabled {
   background-color: rgba(0, 0, 0, 0.09) !important;
 }
 
-.button-common button.ant-btn.css-dev-only-do-not-override-pr0fja.ant-btn-default.gradient {
+.button-common button.ant-btn.ant-btn-default.gradient {
   border-radius: 5px;
   background: linear-gradient(30deg, #2782A9 28.37%, #82ACEA 67.26%, #288FBB 94.02%);
   display: flex;
@@ -69,7 +69,7 @@ code {
   letter-spacing: 0.15px;
 }
 
-.button-common button.ant-btn.css-dev-only-do-not-override-pr0fja.ant-btn-default.blue {
+.button-common button.ant-btn.ant-btn-default.blue {
   border-radius: 5px;
   background: #528DD2;
   display: flex;
@@ -87,7 +87,7 @@ code {
   letter-spacing: 0.15px
 }
 
-.button-common button.ant-btn.css-dev-only-do-not-override-pr0fja.ant-btn-default.grey {
+.button-common button.ant-btn.ant-btn-default.grey {
   border-radius: 5px;
   background: #E8EAEE;
   display: flex;
@@ -104,7 +104,7 @@ code {
   letter-spacing: 0.15px;
 }
 
-.button-common button.ant-btn.css-dev-only-do-not-override-pr0fja.ant-btn-default.upload {
+.button-common button.ant-btn.ant-btn-default.upload {
   border-radius: 5px;
   background: #E8EAEE;
   display: flex;
@@ -121,20 +121,20 @@ code {
   letter-spacing: 0.15px;
 }
 
-.ant-notification-notice.success-message.css-dev-only-do-not-override-pr0fja.ant-notification-notice-closable {
+.ant-notification-notice.success-message.ant-notification-notice-closable {
   border-radius: 5px;
   background: #D9FFDC;
   margin-top: 50px;
 }
 
-.ant-notification-notice.warning-message.css-dev-only-do-not-override-pr0fja.ant-notification-notice-closable {
+.ant-notification-notice.warning-message.ant-notification-notice-closable {
   border-radius: 5px;
   background: #FFF3B4;
   margin-top: 50px;
 
 }
 
-.ant-notification-notice.fail-message.css-dev-only-do-not-override-pr0fja.ant-notification-notice-closable {
+.ant-notification-notice.fail-message.ant-notification-notice-closable {
   border-radius: 5px;
   background: #FFE2E0;
   margin-top: 50px;
